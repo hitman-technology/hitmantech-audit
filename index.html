@@ -269,7 +269,7 @@ function showResults(d) {
   for (var ci = 0; ci < d.categories.length; ci++) {
     var cat = d.categories[ci];
     var pct = Math.round((cat.score / cat.max_score) * 100);
-    html += "<div class='cat-mini' onclick='openCat("" + cat.id + "")'>";
+    html += "<div class='cat-mini' data-catid='" + cat.id + "'>";
     html += "<div class='cm-top'><span class='cm-name'>" + cat.name + "</span><span class='cm-pts'>" + cat.score + "/" + cat.max_score + "</span></div>";
     html += "<div class='bar'><div class='bf " + barCls(pct) + "' style='width:" + pct + "%'></div></div>";
     html += "</div>";
@@ -294,7 +294,7 @@ function showResults(d) {
       }
     }
     html += "<div class='acc-item'>";
-    html += "<div class='acc-hd' onclick='openCat("" + acat.id + "")'>";
+    html += "<div class='acc-hd' data-catid='" + acat.id + "'>";
     html += "<span class='acc-name'>" + acat.name + "</span>";
     html += "<span class='acc-pts'>" + acat.score + "/" + acat.max_score + "</span>";
     html += "<div class='acc-bar'><div class='bf " + barCls(apct) + "' style='width:" + apct + "%'></div></div>";
@@ -343,6 +343,21 @@ function showResults(d) {
   html += "</div>";
 
   document.getElementById("results").innerHTML = html;
+  document.getElementById("results").onclick = function(ev) {
+    var node = ev.target;
+    while (node && node !== this) {
+      if (node.getAttribute && node.getAttribute("data-catid")) {
+        openCat(node.getAttribute("data-catid"));
+        return;
+      }
+      node = node.parentNode;
+    }
+  };
+  // Add click handlers via event delegation to avoid inline quote issues
+  document.getElementById("results").addEventListener("click", function(e) {
+    var el = e.target.closest("[data-catid]");
+    if (el) { openCat(el.getAttribute("data-catid")); }
+  });
 }
 
 function resetAudit() {
