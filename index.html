@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,20 +13,20 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
 .blob{width:22px;height:6px;background:#15A4A2;border-radius:5px}
 .bname{font-size:15px;font-weight:700;color:#fff;line-height:1.1}
 .bsub{font-size:9px;color:#15A4A2;letter-spacing:.1em;text-transform:uppercase}
-.hero{background:#0a1a18;padding:28px 20px 24px;position:relative;overflow:hidden}
+.hero{background:#0a1a18;padding:28px 20px 24px}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(21,164,162,.12);border:1px solid rgba(21,164,162,.3);color:#6ecfce;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px}
-.hero h1{font-size:24px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:8px;letter-spacing:-.02em}
+.hero h1{font-size:24px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:8px}
 .hero h1 em{color:#15A4A2;font-style:normal}
 .hero-sub{font-size:12px;color:#8fa8a4;line-height:1.7;max-width:700px;margin-bottom:20px}
 .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
 .hstat{background:rgba(255,255,255,.04);border:1px solid rgba(21,164,162,.2);border-radius:8px;padding:12px;text-align:center}
-.hstat-val{font-size:22px;font-weight:800;color:#15A4A2;line-height:1}
+.hstat-val{font-size:22px;font-weight:800;color:#15A4A2}
 .hstat-lbl{font-size:10px;color:#8fa8a4;margin-top:4px;line-height:1.4}
 .hstat-src{font-size:9px;color:#5a706c;margin-top:2px;font-style:italic}
 .url-section{background:#fff;border:1px solid #d4e2df;border-radius:0 0 10px 10px;padding:16px 20px;margin-bottom:20px}
 .url-row{display:flex;gap:8px;margin-bottom:8px}
-.url-row input{flex:1;padding:11px 16px;border:1.5px solid #d4e2df;border-radius:8px;font-size:14px;outline:none;font-family:monospace;background:#f2f6f5}
-.url-row input:focus{border-color:#15A4A2;background:#fff}
+.url-row input{flex:1;padding:11px 16px;border:1.5px solid #d4e2df;border-radius:8px;font-size:14px;outline:none}
+.url-row input:focus{border-color:#15A4A2}
 .url-row button{background:#15A4A2;color:#fff;border:none;padding:11px 22px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap}
 .url-row button:hover{background:#0c7a78}
 .url-row button:disabled{opacity:.5;cursor:not-allowed}
@@ -52,13 +53,12 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
 .ghost-C{background:#fef3e0;border-color:#f0a020}
 .ghost-D{background:#feebeb;border-color:#e03b3a}
 .ghost-F{background:#feebeb;border-color:#e03b3a}
-.ghost-icon{font-size:28px;flex-shrink:0;line-height:1}
+.ghost-icon{font-size:22px;font-weight:800;flex-shrink:0;line-height:1;margin-top:2px}
+.ghost-A .ghost-icon{color:#085041}.ghost-B .ghost-icon{color:#0c3a7a}
+.ghost-C .ghost-icon{color:#6b3e00}.ghost-D .ghost-icon,.ghost-F .ghost-icon{color:#7a1a1a}
 .ghost-title{font-size:13px;font-weight:800;margin-bottom:4px}
-.ghost-A .ghost-title{color:#085041}
-.ghost-B .ghost-title{color:#0c3a7a}
-.ghost-C .ghost-title{color:#6b3e00}
-.ghost-D .ghost-title{color:#7a1a1a}
-.ghost-F .ghost-title{color:#4e0e0e}
+.ghost-A .ghost-title{color:#085041}.ghost-B .ghost-title{color:#0c3a7a}
+.ghost-C .ghost-title{color:#6b3e00}.ghost-D .ghost-title,.ghost-F .ghost-title{color:#7a1a1a}
 .ghost-desc{font-size:12px;line-height:1.65;color:#5a706c}
 .sw-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
 .sw-panel{background:#fff;border:1px solid #d4e2df;border-radius:10px;padding:16px}
@@ -83,7 +83,7 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
 .cat-mini:hover{border-color:#15A4A2;background:#e0f5f4}
 .cm-top{display:flex;align-items:flex-start;gap:6px;margin-bottom:8px}
 .cm-name{font-size:11px;font-weight:700;flex:1;line-height:1.3}
-.cm-pts{font-size:11px;color:#8fa8a4;white-space:nowrap;font-family:monospace}
+.cm-pts{font-size:11px;color:#8fa8a4;white-space:nowrap}
 .bar{height:3px;background:#d4e2df;border-radius:2px;overflow:hidden}
 .bf{height:100%;border-radius:2px}
 .c-g{background:#15A4A2}.c-b{background:#3480cc}.c-a{background:#f0a020}.c-r{background:#e03b3a}
@@ -92,17 +92,17 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
 .acc-hd{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer}
 .acc-hd:hover{background:#f2f6f5}
 .acc-name{flex:1;font-size:13px;font-weight:700}
-.acc-pts{font-size:11px;color:#8fa8a4;font-family:monospace;margin-right:6px}
+.acc-pts{font-size:11px;color:#8fa8a4;margin-right:6px}
 .acc-bar{width:52px;height:3px;background:#d4e2df;border-radius:2px;overflow:hidden;flex-shrink:0}
-.acc-chev{font-size:14px;color:#8fa8a4;transition:transform .2s;flex-shrink:0}
+.acc-chev{font-size:12px;color:#8fa8a4;transition:transform .2s;flex-shrink:0;font-weight:700}
 .acc-chev.open{transform:rotate(180deg)}
 .acc-body{display:none;padding:0 14px 14px;border-top:1px solid #d4e2df}
 .acc-body.open{display:block}
 .cat-sum{font-size:12px;color:#5a706c;font-style:italic;margin:10px 0 2px;line-height:1.65;padding:8px 10px;background:#f2f6f5;border-radius:6px;border-left:3px solid #15A4A2}
 .chk-list{display:flex;flex-direction:column;gap:7px;margin-top:10px}
 .chk{display:flex;gap:10px;align-items:flex-start;padding:8px;border-radius:6px;background:#f9fbfb}
-.chk-status{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:4px}
-.s-pass{background:#15A4A2}.s-warn{background:#f0a020}.s-fail{background:#e03b3a}.s-info{background:#3480cc}
+.chk-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.d-pass{background:#15A4A2}.d-warn{background:#f0a020}.d-fail{background:#e03b3a}.d-info{background:#3480cc}
 .chk-name{font-size:12px;font-weight:700;color:#080e0d;margin-bottom:2px}
 .chk-desc{font-size:12px;color:#5a706c;line-height:1.55;margin-bottom:3px}
 .chk-ai{font-size:11px;color:#15A4A2;font-style:italic;margin-bottom:3px}
@@ -132,32 +132,28 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
 .actions button{padding:9px 16px;border-radius:7px;border:1px solid #d4e2df;background:#fff;font-size:12px;font-weight:600;cursor:pointer}
 .actions button:hover{background:#f2f6f5}
 .btn-primary{background:#15A4A2 !important;color:#fff !important;border-color:#15A4A2 !important}
-.btn-primary:hover{background:#0c7a78 !important}
 .empty{text-align:center;padding:50px 20px;color:#8fa8a4;background:#fff;border-radius:10px;border:1px solid #d4e2df}
 .empty h3{font-size:16px;margin-bottom:10px;color:#5a706c;font-weight:800}
 .empty p{font-size:12px;line-height:1.8;max-width:500px;margin:0 auto}
-@media(max-width:600px){.sw-grid,.llm-grid,.tier-grid,.hero-stats{grid-template-columns:1fr}.hero h1{font-size:18px}.url-row{flex-direction:column}}
+@media(max-width:600px){.sw-grid,.llm-grid,.tier-grid,.hero-stats{grid-template-columns:1fr}.url-row{flex-direction:column}}
 </style>
 </head>
 <body>
 <div class="wrap">
-
 <div class="brand">
   <div class="blobs"><div class="blob"></div><div class="blob"></div><div class="blob"></div></div>
   <div><div class="bname">Hitman Technologies</div><div class="bsub">LLM and Agent Readiness Auditor</div></div>
 </div>
-
 <div class="hero">
   <div class="hero-badge">The Agent Economy is here</div>
   <h1>Is your website a <em>ghost in the forest</em> to AI agents?</h1>
-  <p class="hero-sub">Cloudflare CEO Matthew Prince warned that online bot traffic will exceed human traffic by 2027. IBM projects AI agents will generate 60-70% of all internet traffic by then. If your website is not readable by Claude, ChatGPT, Gemini, and other AI agents it simply will not be found, recommended, or purchased from.</p>
+  <p class="hero-sub">Cloudflare CEO Matthew Prince warned that online bot traffic will exceed human traffic by 2027. IBM projects AI agents will generate 60-70% of all internet traffic by then. If your website is not readable by Claude, ChatGPT, Gemini, and other AI agents it will not be found, recommended, or purchased from.</p>
   <div class="hero-stats">
     <div class="hstat"><div class="hstat-val">50%+</div><div class="hstat-lbl">of internet traffic is already AI agents</div><div class="hstat-src">Source: Cloudflare, 2026</div></div>
     <div class="hstat"><div class="hstat-val">60-70%</div><div class="hstat-lbl">projected bot traffic share by 2027</div><div class="hstat-src">Source: IBM Agent Economy, 2026</div></div>
     <div class="hstat"><div class="hstat-val">2027</div><div class="hstat-lbl">when bots will outnumber human users</div><div class="hstat-src">Source: Cloudflare CEO, TechCrunch</div></div>
   </div>
 </div>
-
 <div class="url-section">
   <div class="url-row">
     <input type="url" id="url-in" placeholder="https://yourwebsite.com" autocomplete="off"/>
@@ -165,25 +161,23 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
   </div>
   <div class="status"><div class="dot" id="dot"></div><span id="status-txt">Enter your URL to find out if Claude, ChatGPT and Gemini can find and recommend your business.</span></div>
 </div>
-
 <div id="results">
   <div class="empty">
     <h3>LLM and Agent Readiness Audit</h3>
-    <p>This audit checks how well your website can be found, read, and acted upon by AI agents including Claude (Anthropic), ChatGPT (OpenAI), Gemini (Google), Perplexity, and autonomous purchasing agents. A low score means your business becomes a ghost - invisible to the systems making recommendations and purchases on behalf of your future customers.</p>
+    <p>This audit checks how well your website can be found, read, and acted upon by AI agents including Claude (Anthropic), ChatGPT (OpenAI), Gemini (Google), Perplexity, and autonomous purchasing agents.</p>
   </div>
 </div>
-
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 var auditData = null;
 
 var GHOST_DATA = {
-  A: {icon: "A+", title: "Agent-Ready: Fully visible and actionable on the agentic web", desc: "Claude, ChatGPT, Gemini and autonomous agents can find your business, understand what you offer, read your pricing, and complete transactions. You are well-positioned for the agent economy."},
-  B: {icon: "B", title: "Mostly Visible: Minor friction points limit agent interactions", desc: "AI agents can find and broadly understand your business but encounter friction completing tasks. A few targeted fixes will make you fully agent-ready before the 2027 tipping point."},
-  C: {icon: "C", title: "Partially Visible: Agents find you but cannot fully act", desc: "AI agents can partially crawl your site but struggle to understand your services, read your pricing, or complete bookings and purchases. You risk being underrepresented in LLM recommendations."},
-  D: {icon: "D", title: "Low Visibility: Your business is fading into the background", desc: "AI agents deprioritise or misrepresent your business. Claude and ChatGPT users asking about your industry are unlikely to be directed to you. Urgent action needed before 2027."},
-  F: {icon: "F", title: "Ghost in the Forest: Invisible to AI agents", desc: "Your website cannot be meaningfully read, understood, or acted upon by AI agents. As bot traffic exceeds 60% of all internet activity by 2027, your business will be effectively absent from the web."}
+  A: {icon: "A+", title: "Agent-Ready: Fully visible and actionable on the agentic web", desc: "Claude, ChatGPT, Gemini and autonomous agents can find your business, understand what you offer, read your pricing, and complete transactions."},
+  B: {icon: "B", title: "Mostly Visible: Minor friction points limit agent interactions", desc: "AI agents can find and broadly understand your business but encounter friction completing tasks. A few targeted fixes will make you fully agent-ready."},
+  C: {icon: "C", title: "Partially Visible: Agents find you but cannot fully act", desc: "AI agents can partially crawl your site but struggle to understand your services, read your pricing, or complete bookings and purchases."},
+  D: {icon: "D", title: "Low Visibility: Your business is fading into the background", desc: "AI agents deprioritise or misrepresent your business. Claude and ChatGPT users asking about your industry are unlikely to be directed to you."},
+  F: {icon: "F", title: "Ghost in the Forest: Invisible to AI agents", desc: "Your website cannot be meaningfully read, understood, or acted upon by AI agents. As bot traffic exceeds 60% by 2027, your business will be absent from the web."}
 };
 
 function setStatus(msg, state) {
@@ -199,17 +193,17 @@ function barCls(p) {
   return p >= 75 ? "c-g" : p >= 50 ? "c-b" : p >= 30 ? "c-a" : "c-r";
 }
 
-function impCls(i) {
-  return i === "high" ? "ih" : i === "low" ? "il" : "im";
+function impCls(imp) {
+  return imp === "high" ? "ih" : imp === "low" ? "il" : "im";
 }
 
-function toggle(id) {
+function openCat(id) {
   var b = document.getElementById("ab-" + id);
   var c = document.getElementById("ac-" + id);
-  if (!b) return;
-  var o = b.classList.contains("open");
-  b.classList.toggle("open", !o);
-  c.classList.toggle("open", !o);
+  if (!b) { return; }
+  var isOpen = b.classList.contains("open");
+  b.classList.toggle("open", !isOpen);
+  c.classList.toggle("open", !isOpen);
 }
 
 function showResults(d) {
@@ -233,17 +227,17 @@ function showResults(d) {
   html += "<div class='sw-grid'>";
   html += "<div class='sw-panel sw-s'><h3>Strengths for LLM Visibility</h3>";
   if (d.strengths) {
-    for (var i = 0; i < d.strengths.length; i++) {
-      var s = d.strengths[i];
-      html += "<div class='sw-item'><div class='sw-dot'></div><div><div class='sw-item-title'>" + (s.title || s) + "</div><div>" + (s.desc || "") + "</div></div></div>";
+    for (var si = 0; si < d.strengths.length; si++) {
+      var sv = d.strengths[si];
+      html += "<div class='sw-item'><div class='sw-dot'></div><div><div class='sw-item-title'>" + (sv.title || sv) + "</div><div>" + (sv.desc || "") + "</div></div></div>";
     }
   }
   html += "</div>";
   html += "<div class='sw-panel sw-w'><h3>Weaknesses Hiding You from LLMs</h3>";
   if (d.weaknesses) {
-    for (var i = 0; i < d.weaknesses.length; i++) {
-      var w = d.weaknesses[i];
-      html += "<div class='sw-item'><div class='sw-dot'></div><div><div class='sw-item-title'>" + (w.title || w) + "</div><div>" + (w.desc || "") + "</div></div></div>";
+    for (var wi = 0; wi < d.weaknesses.length; wi++) {
+      var wv = d.weaknesses[wi];
+      html += "<div class='sw-item'><div class='sw-dot'></div><div><div class='sw-item-title'>" + (wv.title || wv) + "</div><div>" + (wv.desc || "") + "</div></div></div>";
     }
   }
   html += "</div></div>";
@@ -254,14 +248,9 @@ function showResults(d) {
     html += "<h3>How the major LLMs see your website right now</h3>";
     html += "<p class='llm-desc'>Based on what Claude (Anthropic), ChatGPT (OpenAI), Gemini (Google) and Perplexity can access and understand about your site.</p>";
     html += "<div class='llm-grid'>";
-    var llms = [
-      {key: "claude", name: "Claude (Anthropic)"},
-      {key: "chatgpt", name: "ChatGPT (OpenAI)"},
-      {key: "gemini", name: "Gemini (Google)"},
-      {key: "perplexity", name: "Perplexity AI"}
-    ];
-    for (var l = 0; l < llms.length; l++) {
-      var lm = llms[l];
+    var llms = [{key:"claude",name:"Claude (Anthropic)"},{key:"chatgpt",name:"ChatGPT (OpenAI)"},{key:"gemini",name:"Gemini (Google)"},{key:"perplexity",name:"Perplexity AI"}];
+    for (var li = 0; li < llms.length; li++) {
+      var lm = llms[li];
       var ld = lr[lm.key] || {score: d.overall_score, can_find: false, can_read: false, can_price: false, can_act: false};
       var lcol = ld.score >= 70 ? "#15A4A2" : ld.score >= 45 ? "#f0a020" : "#e03b3a";
       html += "<div class='llm-card'>";
@@ -277,54 +266,57 @@ function showResults(d) {
   }
 
   html += "<div class='cat-strip'>";
-  for (var i = 0; i < d.categories.length; i++) {
-    var c = d.categories[i];
-    var pct = Math.round((c.score / c.max_score) * 100);
-    html += "<div class='cat-mini' onclick="toggle('" + c.id + "')">";
-    html += "<div class='cm-top'><span class='cm-name'>" + c.name + "</span><span class='cm-pts'>" + c.score + "/" + c.max_score + "</span></div>";
+  for (var ci = 0; ci < d.categories.length; ci++) {
+    var cat = d.categories[ci];
+    var pct = Math.round((cat.score / cat.max_score) * 100);
+    html += "<div class='cat-mini' onclick='openCat("" + cat.id + "")'>";
+    html += "<div class='cm-top'><span class='cm-name'>" + cat.name + "</span><span class='cm-pts'>" + cat.score + "/" + cat.max_score + "</span></div>";
     html += "<div class='bar'><div class='bf " + barCls(pct) + "' style='width:" + pct + "%'></div></div>";
     html += "</div>";
   }
   html += "</div>";
 
   html += "<div class='acc'>";
-  for (var i = 0; i < d.categories.length; i++) {
-    var c = d.categories[i];
-    var pct = Math.round((c.score / c.max_score) * 100);
+  for (var ai = 0; ai < d.categories.length; ai++) {
+    var acat = d.categories[ai];
+    var apct = Math.round((acat.score / acat.max_score) * 100);
     var chks = "";
-    if (c.checks) {
-      for (var j = 0; j < c.checks.length; j++) {
-        var ck = c.checks[j];
+    if (acat.checks) {
+      for (var cki = 0; cki < acat.checks.length; cki++) {
+        var ck = acat.checks[cki];
         chks += "<div class='chk'>";
-        chks += "<div class='chk-status s-" + ck.status + "'></div>";
+        chks += "<div class='chk-dot d-" + ck.status + "'></div>";
         chks += "<div><div class='chk-name'>" + ck.name + "</div>";
         chks += "<div class='chk-desc'>" + ck.description + "</div>";
-        if (ck.agent_impact) chks += "<div class='chk-ai'>LLM impact: " + ck.agent_impact + "</div>";
+        if (ck.agent_impact) { chks += "<div class='chk-ai'>LLM impact: " + ck.agent_impact + "</div>"; }
         chks += "<span class='chk-imp " + impCls(ck.impact || "medium") + "'>" + (ck.impact || "medium") + " impact</span>";
         chks += "</div></div>";
       }
     }
-    html += "<div class='acc-item'><div class='acc-hd' onclick="toggle('" + c.id + "')">";
-    html += "<span class='acc-name'>" + c.name + "</span>";
-    html += "<span class='acc-pts'>" + c.score + "/" + c.max_score + "</span>";
-    html += "<div class='acc-bar'><div class='bf " + barCls(pct) + "' style='width:" + pct + "%'></div></div>";
-    html += "<span class='acc-chev' id='ac-" + c.id + "'>v</span>";
-    html += "</div><div class='acc-body' id='ab-" + c.id + "'>";
-    if (c.summary) html += "<div class='cat-sum'>" + c.summary + "</div>";
-    html += "<div class='chk-list'>" + chks + "</div></div></div>";
+    html += "<div class='acc-item'>";
+    html += "<div class='acc-hd' onclick='openCat("" + acat.id + "")'>";
+    html += "<span class='acc-name'>" + acat.name + "</span>";
+    html += "<span class='acc-pts'>" + acat.score + "/" + acat.max_score + "</span>";
+    html += "<div class='acc-bar'><div class='bf " + barCls(apct) + "' style='width:" + apct + "%'></div></div>";
+    html += "<span class='acc-chev' id='ac-" + acat.id + "'>v</span>";
+    html += "</div>";
+    html += "<div class='acc-body' id='ab-" + acat.id + "'>";
+    if (acat.summary) { html += "<div class='cat-sum'>" + acat.summary + "</div>"; }
+    html += "<div class='chk-list'>" + chks + "</div>";
+    html += "</div></div>";
   }
   html += "</div>";
 
   if (d.recommendations && d.recommendations.length) {
     html += "<div class='recs'><h3>Recommended Action Plan</h3>";
-    html += "<p class='recs-sub'>Prioritised fixes to increase your LLM Readiness Score. Each fix makes your business more visible, understandable, and actionable to Claude, ChatGPT, Gemini, and autonomous agents.</p>";
-    for (var k = 0; k < d.recommendations.length; k++) {
-      var r = d.recommendations[k];
-      html += "<div class='rec'><div class='rec-num'>" + (k + 1) + "</div><div>";
-      html += "<div class='rec-title'>" + r.title + "</div>";
-      html += "<div class='rec-desc'>" + r.description + "</div>";
-      if (r.agent_benefit) html += "<div class='rec-benefit'>LLM benefit: " + r.agent_benefit + "</div>";
-      html += "<span class='rec-imp " + impCls(r.impact || "medium") + "'>" + (r.impact || "medium") + " impact</span>";
+    html += "<p class='recs-sub'>Prioritised fixes to increase your LLM Readiness Score and ensure AI agents can find, understand, and transact with your business.</p>";
+    for (var ri = 0; ri < d.recommendations.length; ri++) {
+      var rec = d.recommendations[ri];
+      html += "<div class='rec'><div class='rec-num'>" + (ri + 1) + "</div><div>";
+      html += "<div class='rec-title'>" + rec.title + "</div>";
+      html += "<div class='rec-desc'>" + rec.description + "</div>";
+      if (rec.agent_benefit) { html += "<div class='rec-benefit'>LLM benefit: " + rec.agent_benefit + "</div>"; }
+      html += "<span class='rec-imp " + impCls(rec.impact || "medium") + "'>" + (rec.impact || "medium") + " impact</span>";
       html += "</div></div>";
     }
     html += "</div>";
@@ -336,11 +328,12 @@ function showResults(d) {
     {id: "agency", n: "Agency Plan", p: "$199/mo", d: "Unlimited audits + full implementation"}
   ];
   html += "<div class='tier'><h3>Suggested Implementation Package</h3><div class='tier-grid'>";
-  for (var t = 0; t < tiers.length; t++) {
-    var ti = tiers[t];
-    var isR = ti.id === d.suggested_tier;
-    html += "<div class='tc" + (isR ? " rec" : "") + "'>" + (isR ? "<div class='tc-badge'>RECOMMENDED</div>" : "");
-    html += "<div class='tc-name'>" + ti.n + "</div><div class='tc-price'>" + ti.p + "</div><div class='tc-desc'>" + ti.d + "</div></div>";
+  for (var ti = 0; ti < tiers.length; ti++) {
+    var titem = tiers[ti];
+    var isRec = titem.id === d.suggested_tier;
+    html += "<div class='tc" + (isRec ? " rec" : "") + "'>";
+    if (isRec) { html += "<div class='tc-badge'>RECOMMENDED</div>"; }
+    html += "<div class='tc-name'>" + titem.n + "</div><div class='tc-price'>" + titem.p + "</div><div class='tc-desc'>" + titem.d + "</div></div>";
   }
   html += "</div></div>";
 
@@ -363,8 +356,7 @@ function dlPDF() {
   if (!auditData) { alert("Please run an audit first."); return; }
   var d = auditData;
   var doc = new window.jspdf.jsPDF({orientation: "portrait", unit: "mm", format: "a4"});
-  var W = 210, L = 18, R = 18, CW = W - L - R;
-  var y = 0;
+  var W = 210, L = 18, R = 18, CW = W - L - R, y = 0;
   var T=[21,164,162],INK=[8,14,13],MID=[90,112,108],BDR=[212,226,223];
   var RED=[224,59,58],AMB=[240,160,32],BLU=[52,128,204],WHT=[255,255,255];
   var LG=[242,246,245],DK=[22,36,32],TL=[224,245,244],PAL=[159,181,174];
@@ -372,15 +364,17 @@ function dlPDF() {
   function sf(c){doc.setFillColor(c[0],c[1],c[2]);}
   function st(c){doc.setTextColor(c[0],c[1],c[2]);}
   function sd(c){doc.setDrawColor(c[0],c[1],c[2]);}
-  function sc(s){return s>=75?T:s>=50?BLU:s>=30?AMB:RED;}
+  function scol(s){return s>=75?T:s>=50?BLU:s>=30?AMB:RED;}
   function gr(s){return s>=85?"A":s>=70?"B":s>=50?"C":s>=35?"D":"F";}
   function np(){doc.addPage();y=0;}
-  function nd(n){if(y+n>272)np();}
+  function nd(n){if(y+n>272){np();}}
   function hl(yy){sd(BDR);doc.setLineWidth(0.2);doc.line(L,yy,W-R,yy);}
 
   function logo(x,y2,s2){
-    s2=s2||1;var bw=16*s2,bh=4*s2,gap=1.8*s2,r=bh/2;
-    sf(T);for(var i=0;i<3;i++)doc.roundedRect(x,y2+i*(bh+gap),bw,bh,r,r,"F");
+    s2=s2||1;
+    var bw=16*s2,bh=4*s2,gap=1.8*s2,r=bh/2;
+    sf(T);
+    for(var i=0;i<3;i++){doc.roundedRect(x,y2+i*(bh+gap),bw,bh,r,r,"F");}
     doc.setFont("helvetica","bold");doc.setFontSize(9.5*s2);st(INK);
     doc.text("Hitman",x+bw+3*s2,y2+bh+gap*0.6);
     doc.setFont("helvetica","normal");doc.setFontSize(6*s2);st(MID);
@@ -388,12 +382,15 @@ function dlPDF() {
   }
 
   function ph(title){
-    np();sf(LG);doc.rect(0,0,W,14,"F");sf(T);doc.rect(0,0,5,14,"F");
+    np();
+    sf(LG);doc.rect(0,0,W,14,"F");
+    sf(T);doc.rect(0,0,5,14,"F");
     logo(L+7,2.5,0.72);
     st(MID);doc.setFont("helvetica","normal");doc.setFontSize(7.5);
     doc.text("HITMAN TECHNOLOGIES - LLM AND AGENT READINESS REPORT",L+50,8);
     doc.text(ad,W-R,8,{align:"right"});
-    y=22;st(INK);doc.setFont("helvetica","bold");doc.setFontSize(15);
+    y=22;
+    st(INK);doc.setFont("helvetica","bold");doc.setFontSize(15);
     doc.text(title,L,y);y+=4;hl(y);y+=8;
   }
 
@@ -402,29 +399,30 @@ function dlPDF() {
   var g = gr(d.overall_score);
   var ghostLabel = {A:"Agent-Ready",B:"Mostly Visible",C:"Partially Visible",D:"Low Visibility",F:"Ghost in the Forest"};
 
-  sf(INK);doc.rect(0,0,W,297,"F");sf(T);doc.rect(0,0,5,297,"F");
+  sf(INK);doc.rect(0,0,W,297,"F");
+  sf(T);doc.rect(0,0,5,297,"F");
   sf(DK);doc.rect(0,72,W,130,"F");
   logo(L+8,16,1.4);
   sf([40,60,56]);doc.rect(L+8,42,CW-8,0.6,"F");
   st(PAL);doc.setFont("helvetica","normal");doc.setFontSize(8.5);
   doc.text("LLM AND AGENT READINESS AUDIT REPORT",L+8,51);
   st(WHT);doc.setFont("helvetica","bold");doc.setFontSize(24);
-  doc.text("LLM and Agent",L+8,65);doc.text("Readiness Report",L+8,76);
+  doc.text("LLM and Agent",L+8,65);
+  doc.text("Readiness Report",L+8,76);
   sf(T);doc.rect(L+8,82,38,0.8,"F");
   doc.setFont("helvetica","normal");doc.setFontSize(11);st(PAL);
-  doc.text(hn,L+8,91);doc.text("Audit date: "+ad,L+8,99);
-
+  doc.text(hn,L+8,91);
+  doc.text("Audit date: "+ad,L+8,99);
   sf(DK);doc.roundedRect(L+8,113,CW-8,50,3,3,"F");
   sf(T);doc.roundedRect(L+8,113,4,50,2,2,"F");
   st(PAL);doc.setFontSize(8);doc.setFont("helvetica","normal");
-  doc.text("LLM READINESS SCORE  -  GRADE "+g+": "+ghostLabel[g],L+20,126);
-  st(sc(d.overall_score));doc.setFontSize(44);doc.setFont("helvetica","bold");
+  doc.text("LLM READINESS SCORE - GRADE "+g+": "+ghostLabel[g],L+20,126);
+  st(scol(d.overall_score));doc.setFontSize(44);doc.setFont("helvetica","bold");
   doc.text(String(d.overall_score),L+20,149);
   var sw=doc.getTextWidth(String(d.overall_score));
   doc.setFontSize(14);doc.text("/100",L+20+sw+2,149);
   st(PAL);doc.setFontSize(8);doc.setFont("helvetica","normal");
-  doc.text(d.checks_passed+" of "+d.checks_total+" checks  -  "+d.critical_issues+" critical issues  -  "+d.pages_crawled+" pages",L+20,157);
-
+  doc.text(d.checks_passed+" of "+d.checks_total+" checks - "+d.critical_issues+" critical issues - "+d.pages_crawled+" pages",L+20,157);
   sf([16,28,24]);doc.roundedRect(L+8,172,CW-8,36,3,3,"F");
   st(T);doc.setFont("helvetica","bold");doc.setFontSize(8.5);
   doc.text("THE AGENT ECONOMY - WHY YOUR SCORE MATTERS",L+14,182);
@@ -432,14 +430,13 @@ function dlPDF() {
   doc.text("50%+ of internet traffic is already AI agents (Cloudflare, 2026)",L+14,189);
   doc.text("60-70% of all internet traffic will be bots and AI agents by 2027 (IBM)",L+14,195);
   doc.text("Websites with low LLM readiness become invisible to Claude, ChatGPT, and Gemini",L+14,201);
-
   sf(T);doc.roundedRect(L+8,218,CW-8,26,3,3,"F");
   st(WHT);doc.setFont("helvetica","bold");doc.setFontSize(11);
   doc.text("Book a free LLM Readiness consultation",W/2,229,{align:"center"});
   doc.setFont("helvetica","normal");doc.setFontSize(9);
-  doc.text("hitmantech.com  -  hello@hitmantech.com",W/2,237,{align:"center"});
+  doc.text("hitmantech.com - info@hitmantech.com",W/2,237,{align:"center"});
   st([61,85,80]);doc.setFont("helvetica","normal");doc.setFontSize(7);
-  doc.text("Hitman Technologies  -  hitmantech.com  -  Confidential",L,292);
+  doc.text("Hitman Technologies - hitmantech.com - Confidential",L,292);
   doc.text("Page 1",W-R,292,{align:"right"});
 
   ph("Strengths and Weaknesses for LLM Visibility");
@@ -451,101 +448,100 @@ function dlPDF() {
   st(RED);doc.text("WEAKNESSES - Hiding from LLMs",wX+4,y+4);
   y+=10;
   var maxI=Math.max((d.strengths||[]).length,(d.weaknesses||[]).length);
-  for(var i=0;i<maxI;i++){
+  for(var pi=0;pi<maxI;pi++){
     nd(16);
-    if(i%2===0){sf(LG);doc.rect(sX,y-2,hw,14,"F");doc.rect(wX,y-2,hw,14,"F");}
-    var sv=d.strengths&&d.strengths[i]?d.strengths[i]:null;
-    var wv=d.weaknesses&&d.weaknesses[i]?d.weaknesses[i]:null;
-    if(sv){
+    if(pi%2===0){sf(LG);doc.rect(sX,y-2,hw,14,"F");doc.rect(wX,y-2,hw,14,"F");}
+    var psv=d.strengths&&d.strengths[pi]?d.strengths[pi]:null;
+    var pwv=d.weaknesses&&d.weaknesses[pi]?d.weaknesses[pi]:null;
+    if(psv){
       sf(T);doc.circle(sX+3.5,y+3,1.5,"F");
       doc.setFont("helvetica","bold");doc.setFontSize(8);st(INK);
-      doc.text(doc.splitTextToSize(sv.title||sv,hw-10)[0],sX+7,y+4);
-      if(sv.desc){doc.setFont("helvetica","normal");doc.setFontSize(7);st(MID);doc.text(doc.splitTextToSize(sv.desc,hw-10)[0],sX+7,y+9);}
+      doc.text(doc.splitTextToSize(psv.title||psv,hw-10)[0],sX+7,y+4);
+      if(psv.desc){doc.setFont("helvetica","normal");doc.setFontSize(7);st(MID);doc.text(doc.splitTextToSize(psv.desc,hw-10)[0],sX+7,y+9);}
     }
-    if(wv){
+    if(pwv){
       sf(RED);doc.circle(wX+3.5,y+3,1.5,"F");
       doc.setFont("helvetica","bold");doc.setFontSize(8);st(INK);
-      doc.text(doc.splitTextToSize(wv.title||wv,hw-10)[0],wX+7,y+4);
-      if(wv.desc){doc.setFont("helvetica","normal");doc.setFontSize(7);st(MID);doc.text(doc.splitTextToSize(wv.desc,hw-10)[0],wX+7,y+9);}
+      doc.text(doc.splitTextToSize(pwv.title||pwv,hw-10)[0],wX+7,y+4);
+      if(pwv.desc){doc.setFont("helvetica","normal");doc.setFontSize(7);st(MID);doc.text(doc.splitTextToSize(pwv.desc,hw-10)[0],wX+7,y+9);}
     }
     y+=16;hl(y-2);
   }
 
-  ph("How Claude, ChatGPT and Gemini See Your Website");
+  ph("How Claude ChatGPT and Gemini See Your Website");
   nd(22);
   sf(DK);doc.roundedRect(L,y,CW,20,2,2,"F");
   st(T);doc.setFont("helvetica","bold");doc.setFontSize(9);
   doc.text("The Ghost in the Forest problem",L+4,y+8);
   st(PAL);doc.setFont("helvetica","normal");doc.setFontSize(8);
   var ql=doc.splitTextToSize("Cloudflare CEO Matthew Prince warned in 2026 that bot traffic will exceed human traffic by 2027. Websites that cannot be read by AI agents will become invisible - ghosts in a forest of agent-readable competitors.",CW-8);
-  for(var gl=0;gl<Math.min(ql.length,2);gl++)doc.text(ql[gl],L+4,y+14+gl*4.5);
+  for(var qli=0;qli<Math.min(ql.length,2);qli++){doc.text(ql[qli],L+4,y+14+qli*4.5);}
   y+=26;
-
   var llmList=[{name:"Claude (Anthropic)",k:"claude"},{name:"ChatGPT (OpenAI)",k:"chatgpt"},{name:"Gemini (Google)",k:"gemini"},{name:"Perplexity AI",k:"perplexity"}];
   var lr2=d.llm_readiness||{};
   var lw2=(CW-6)/2;
-  for(var li=0;li<4;li++){
+  for(var lli=0;lli<4;lli++){
+    if(lli===2){y+=30;}
     nd(28);
-    var lx=L+(li%2)*(lw2+6);
-    if(li===2)y+=30;
-    var ld=lr2[llmList[li].k]||{score:d.overall_score,can_find:d.overall_score>=50,can_read:d.overall_score>=40,can_price:d.overall_score>=60,can_act:d.overall_score>=55};
+    var lx=L+(lli%2)*(lw2+6);
+    var ldat=lr2[llmList[lli].k]||{score:d.overall_score,can_find:d.overall_score>=50,can_read:d.overall_score>=40,can_price:d.overall_score>=60,can_act:d.overall_score>=55};
     sf(LG);doc.roundedRect(lx,y,lw2,24,2,2,"F");
     sf(T);doc.roundedRect(lx,y,4,24,2,2,"F");
     doc.setFont("helvetica","bold");doc.setFontSize(8.5);st(INK);
-    doc.text(llmList[li].name,lx+7,y+7);
-    st(sc(ld.score));doc.setFontSize(13);
-    doc.text(String(ld.score)+"/100",lx+7,y+15);
-    var cks2=[ld.can_find?"Yes: Can find":"No: Cannot find",ld.can_read?"Yes: Can read":"No: Cannot read",ld.can_price?"Yes: Has pricing":"No: Missing pricing",ld.can_act?"Yes: Can direct action":"No: No clear action"];
+    doc.text(llmList[lli].name,lx+7,y+7);
+    st(scol(ldat.score));doc.setFontSize(13);
+    doc.text(String(ldat.score)+"/100",lx+7,y+15);
+    var lcks=[ldat.can_find?"Yes: Can find":"No: Cannot find",ldat.can_read?"Yes: Can read":"No: Cannot read",ldat.can_price?"Yes: Has pricing":"No: Missing pricing",ldat.can_act?"Yes: Can direct action":"No: No clear action"];
     doc.setFontSize(7);doc.setFont("helvetica","normal");
-    for(var ci2=0;ci2<4;ci2++){
-      st(cks2[ci2].startsWith("Yes")?T:cks2[ci2].startsWith("No:")?RED:AMB);
-      doc.text(cks2[ci2],lx+lw2*0.42,y+6+ci2*4.5);
+    for(var lci=0;lci<4;lci++){
+      st(lcks[lci].startsWith("Yes")?T:RED);
+      doc.text(lcks[lci],lx+lw2*0.42,y+6+lci*4.5);
     }
   }
   y+=32;
 
   ph("Category Scores");
-  for(var i=0;i<d.categories.length;i++){
-    var cat=d.categories[i];
-    var pct=Math.round((cat.score/cat.max_score)*100);
+  for(var csi=0;csi<d.categories.length;csi++){
+    var cscat=d.categories[csi];
+    var cspct=Math.round((cscat.score/cscat.max_score)*100);
     nd(28);
-    if(i%2===0){sf(LG);doc.rect(L,y-4,CW,24,"F");}
-    doc.setFont("helvetica","bold");doc.setFontSize(10);st(INK);doc.text(cat.name,L+2,y+4);
+    if(csi%2===0){sf(LG);doc.rect(L,y-4,CW,24,"F");}
+    doc.setFont("helvetica","bold");doc.setFontSize(10);st(INK);doc.text(cscat.name,L+2,y+4);
     doc.setFont("helvetica","normal");doc.setFontSize(7.5);st(MID);
-    var sl=doc.splitTextToSize(cat.summary||"",CW*0.58);
-    for(var si2=0;si2<Math.min(sl.length,2);si2++)doc.text(sl[si2],L+2,y+10+si2*4);
+    var cssl=doc.splitTextToSize(cscat.summary||"",CW*0.58);
+    for(var cssli=0;cssli<Math.min(cssl.length,2);cssli++){doc.text(cssl[cssli],L+2,y+10+cssli*4);}
     var bx=L+CW*0.65,bw3=CW*0.2;
     sf(BDR);doc.roundedRect(bx,y+2,bw3,3.5,1.5,1.5,"F");
-    sf(sc(pct));doc.roundedRect(bx,y+2,Math.max(bw3*pct/100,3),3.5,1.5,1.5,"F");
-    doc.setFont("helvetica","bold");doc.setFontSize(11);st(sc(pct));
-    doc.text(cat.score+"/"+cat.max_score,bx+bw3+3,y+5);
+    sf(scol(cspct));doc.roundedRect(bx,y+2,Math.max(bw3*cspct/100,3),3.5,1.5,1.5,"F");
+    doc.setFont("helvetica","bold");doc.setFontSize(11);st(scol(cspct));
+    doc.text(cscat.score+"/"+cscat.max_score,bx+bw3+3,y+5);
     y+=26;hl(y-2);
   }
 
   ph("Detailed Findings");
-  for(var ci=0;ci<d.categories.length;ci++){
-    var cat2=d.categories[ci];nd(20);
+  for(var dfi=0;dfi<d.categories.length;dfi++){
+    var dfcat=d.categories[dfi];nd(20);
     sf(T);doc.roundedRect(L,y,CW,8,1,1,"F");
     st(WHT);doc.setFont("helvetica","bold");doc.setFontSize(9);
-    doc.text(cat2.name.toUpperCase()+"  -  "+cat2.score+"/"+cat2.max_score,L+4,y+5.5);
+    doc.text(dfcat.name.toUpperCase()+" - "+dfcat.score+"/"+dfcat.max_score,L+4,y+5.5);
     y+=12;
-    if(cat2.checks){
-      for(var cki=0;cki<cat2.checks.length;cki++){
-        var ck=cat2.checks[cki];nd(18);
-        if(cki%2===0){sf(LG);doc.rect(L,y-2,CW,15,"F");}
-        var stC=ck.status==="pass"?T:ck.status==="warn"?AMB:ck.status==="fail"?RED:BLU;
-        sf(stC);doc.circle(L+4,y+2.5,1.4,"F");
+    if(dfcat.checks){
+      for(var dfci=0;dfci<dfcat.checks.length;dfci++){
+        var dfck=dfcat.checks[dfci];nd(18);
+        if(dfci%2===0){sf(LG);doc.rect(L,y-2,CW,15,"F");}
+        var dfstC=dfck.status==="pass"?T:dfck.status==="warn"?AMB:dfck.status==="fail"?RED:BLU;
+        sf(dfstC);doc.circle(L+4,y+2.5,1.4,"F");
         doc.setFont("helvetica","bold");doc.setFontSize(8.5);st(INK);
-        doc.text(ck.name||"",L+9,y+3);
-        var dl=doc.splitTextToSize(ck.description||"",CW-12);
+        doc.text(dfck.name||"",L+9,y+3);
+        var dfdl=doc.splitTextToSize(dfck.description||"",CW-12);
         doc.setFont("helvetica","normal");doc.setFontSize(7.5);st(MID);
-        for(var dli=0;dli<Math.min(dl.length,2);dli++)doc.text(dl[dli],L+9,y+7+dli*3.5);
-        if(ck.agent_impact){
+        for(var dfdli=0;dfdli<Math.min(dfdl.length,2);dfdli++){doc.text(dfdl[dfdli],L+9,y+7+dfdli*3.5);}
+        if(dfck.agent_impact){
           st(T);doc.setFontSize(7);
-          doc.text(doc.splitTextToSize("LLM impact: "+ck.agent_impact,CW-12)[0],L+9,y+(dl.length>1?14:11));
+          doc.text(doc.splitTextToSize("LLM impact: "+dfck.agent_impact,CW-12)[0],L+9,y+(dfdl.length>1?14:11));
           y+=3;
         }
-        y+=dl.length>1?16:12;hl(y-1);
+        y+=dfdl.length>1?16:12;hl(y-1);
       }
     }
     y+=6;
@@ -555,19 +551,19 @@ function dlPDF() {
   var iC={high:RED,medium:AMB,low:T};
   var iB={high:[254,235,235],medium:[254,243,224],low:TL};
   if(d.recommendations){
-    for(var ri=0;ri<d.recommendations.length;ri++){
-      var rec=d.recommendations[ri];nd(36);
+    for(var reci=0;reci<d.recommendations.length;reci++){
+      var rec=d.recommendations[reci];nd(36);
       var rc=iC[rec.impact]||AMB,rb=iB[rec.impact]||[254,243,224];
       sf(rb);doc.roundedRect(L,y,CW,30,2,2,"F");
       sd(rc);doc.setLineWidth(0.5);doc.line(L,y,L,y+30);
       sf(rc);doc.roundedRect(L+4,y+3,4,4,0.8,0.8,"F");
       st(WHT);doc.setFont("helvetica","bold");doc.setFontSize(7);
-      doc.text(String(ri+1),L+6,y+6.2,{align:"center"});
+      doc.text(String(reci+1),L+6,y+6.2,{align:"center"});
       st(INK);doc.setFont("helvetica","bold");doc.setFontSize(9.5);
       doc.text(rec.title||"",L+11,y+7);
       var rdl=doc.splitTextToSize(rec.description||"",CW-16);
       doc.setFont("helvetica","normal");doc.setFontSize(8);st(MID);
-      for(var rdi=0;rdi<Math.min(rdl.length,2);rdi++)doc.text(rdl[rdi],L+11,y+12+rdi*4);
+      for(var rdli=0;rdli<Math.min(rdl.length,2);rdli++){doc.text(rdl[rdli],L+11,y+12+rdli*4);}
       if(rec.agent_benefit){st(T);doc.setFontSize(7.5);doc.text(doc.splitTextToSize("LLM benefit: "+rec.agent_benefit,CW-16)[0],L+11,y+22);}
       sf(rc);doc.roundedRect(W-R-22,y+3,22,5,1,1,"F");
       st(WHT);doc.setFont("helvetica","bold");doc.setFontSize(7);
@@ -579,7 +575,8 @@ function dlPDF() {
   ph("Next Steps with Hitman Technologies");
   nd(60);
   sf(DK);doc.roundedRect(L,y,CW,56,3,3,"F");
-  sf(T);doc.roundedRect(L,y,CW,14,3,3,"F");sf(T);doc.rect(L,y+8,CW,6,"F");
+  sf(T);doc.roundedRect(L,y,CW,14,3,3,"F");
+  sf(T);doc.rect(L,y+8,CW,6,"F");
   st(WHT);doc.setFont("helvetica","bold");doc.setFontSize(13);
   doc.text("Do not be a ghost in the forest.",L+CW/2,y+10.5,{align:"center"});
   logo(L+CW/2-22,y+18,1.05);
@@ -588,30 +585,31 @@ function dlPDF() {
   doc.text("and actionable to every major AI agent and LLM.",L+CW/2,y+44,{align:"center"});
   sf(T);doc.roundedRect(L+CW/2-38,y+48,76,8,2,2,"F");
   st(WHT);doc.setFont("helvetica","bold");doc.setFontSize(9);
-  doc.text("hitmantech.com  -  hello@hitmantech.com",L+CW/2,y+53.5,{align:"center"});
+  doc.text("hitmantech.com - info@hitmantech.com",L+CW/2,y+53.5,{align:"center"});
 
   var tot=doc.getNumberOfPages();
-  for(var p=1;p<=tot;p++){
-    doc.setPage(p);doc.setFont("helvetica","normal");doc.setFontSize(7);st([61,85,80]);
-    doc.text("Hitman Technologies  -  hitmantech.com  -  LLM and Agent Readiness Report  -  Confidential",L,292);
-    doc.text("Page "+p+" of "+tot,W-R,292,{align:"right"});
+  for(var pn=1;pn<=tot;pn++){
+    doc.setPage(pn);
+    doc.setFont("helvetica","normal");doc.setFontSize(7);st([61,85,80]);
+    doc.text("Hitman Technologies - hitmantech.com - LLM and Agent Readiness Report - Confidential",L,292);
+    doc.text("Page "+pn+" of "+tot,W-R,292,{align:"right"});
   }
 
   var slug=hn.replace(/[^a-z0-9]/gi,"-").toLowerCase();
   doc.save("hitmantech-llm-readiness-"+slug+"-"+new Date().toISOString().slice(0,10)+".pdf");
 }
 
-var SYS = "You are an LLM and agent readiness expert for Hitman Technologies (hitmantech.com). Cloudflare CEO Matthew Prince stated in 2026 that bot traffic will exceed human traffic by 2027. IBM projects AI agents will generate 60-70% of all internet traffic by 2027. Websites that are not LLM-friendly become ghosts - invisible to the systems making recommendations and purchases on behalf of users. Audit the given URL and return ONLY valid compact JSON with no markdown and no backticks: {" + '"url":string,"overall_score":integer 0-100,"checks_passed":integer,"checks_total":30,"critical_issues":integer,"pages_crawled":integer,"strengths":[{"title":string,"desc":string}],"weaknesses":[{"title":string,"desc":string}],"llm_readiness":{"claude":{"score":integer,"can_find":boolean,"can_read":boolean,"can_price":boolean,"can_act":boolean},"chatgpt":{"score":integer,"can_find":boolean,"can_read":boolean,"can_price":boolean,"can_act":boolean},"gemini":{"score":integer,"can_find":boolean,"can_read":boolean,"can_price":boolean,"can_act":boolean},"perplexity":{"score":integer,"can_find":boolean,"can_read":boolean,"can_price":boolean,"can_act":boolean}},"categories":[{"id":string,"name":string,"score":integer,"max_score":integer,"summary":string,"checks":[{"name":string,"status":"pass|warn|fail|info","description":string,"agent_impact":string,"impact":"high|medium|low"}]}],"recommendations":[{"title":string,"description":string,"agent_benefit":string,"impact":"high|medium|low"}],"suggested_tier":"starter|pro|agency"}' + " Use EXACTLY these 6 categories: 1. id:discoverability name:LLM Discoverability max_score:20 checks: llms.txt at /llms.txt, robots.txt allows GPTBot+ClaudeBot+PerplexityBot, XML sitemap present, meta title and description quality, Open Graph tags. 2. id:interpretability name:Content Interpretability max_score:20 checks: value proposition in H1/H2 text, services described in HTML text not images, pricing visible in HTML, FAQ content in text, content clarity. 3. id:structured_data name:Structured Data max_score:20 checks: Schema.org JSON-LD present, Product or Service schema, pricing and availability schema, Organization schema with contact, Review and rating schema. 4. id:navigation name:Agentic Navigation max_score:20 checks: CTAs have descriptive text, form fields have label elements, critical flows work without JavaScript, contact and phone in HTML text, no modal blocking content. 5. id:commerce name:Commerce Readiness max_score:15 checks: product catalogue in readable HTML, checkout accessible without account creation, payment method indicators visible, shipping and returns in text, post-purchase path visible. 6. id:api name:API Integration max_score:5 checks: public API or developer docs exist, MCP signals, webhook documentation, OAuth or API key auth, structured error responses. Provide exactly 5 strengths and 5 weaknesses each with title and desc. For llm_readiness score each LLM 0-100. Provide exactly 7 recommendations ordered by impact. Keep all text under 130 characters. suggested_tier: score>=75 starter, score>=45 pro, score<45 agency.";
+var SYS = "You are an LLM and agent readiness expert for Hitman Technologies (hitmantech.com). Cloudflare CEO Matthew Prince stated in 2026 that bot traffic will exceed human traffic by 2027. IBM projects AI agents will generate 60-70% of all internet traffic by 2027. Websites that are not LLM-friendly become ghosts invisible to the systems making recommendations and purchases on behalf of users. Audit the given URL and return ONLY valid compact JSON with no markdown and no backticks. The JSON structure is: url string, overall_score integer 0-100, checks_passed integer, checks_total 30, critical_issues integer, pages_crawled integer, strengths array of objects with title and desc, weaknesses array of objects with title and desc, llm_readiness object with claude chatgpt gemini perplexity each having score integer can_find boolean can_read boolean can_price boolean can_act boolean, categories array, recommendations array, suggested_tier string. Categories must use EXACTLY these 6 ids and max scores: discoverability 20, interpretability 20, structured_data 20, navigation 20, commerce 15, api 5. Category names: LLM Discoverability, Content Interpretability, Structured Data, Agentic Navigation, Commerce Readiness, API Integration. Each category has 5 checks with name status description agent_impact and impact. Status values are pass warn fail or info. Provide exactly 5 strengths and 5 weaknesses. Provide exactly 7 recommendations each with title description agent_benefit and impact. Keep all text fields under 130 characters. suggested_tier is starter if score 75 or above, pro if score 45 to 74, agency if score below 45.";
 
 async function runAudit() {
   var raw = document.getElementById("url-in").value.trim();
   if (!raw) { alert("Please enter a URL"); return; }
-  if (!raw.startsWith("http")) raw = "https://" + raw;
+  if (!raw.startsWith("http")) { raw = "https://" + raw; }
   setStatus("Checking how Claude, ChatGPT, Gemini and Perplexity see " + raw + "...", "active");
   document.getElementById("run-btn").disabled = true;
   document.getElementById("results").innerHTML = "<div class='empty'><h3>Auditing LLM readiness...</h3><p>Checking discoverability, content interpretability, structured data, agentic navigation, commerce readiness, and API integration.</p></div>";
   try {
-    var resp = await fetch("https://www.hitmantech.com/_functions/auditProxy", {
+    var resp = await fetch("https://hitmantech-proxy.jmarino.workers.dev", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
@@ -622,10 +620,10 @@ async function runAudit() {
       })
     });
     var data = await resp.json();
-    if (data.error) throw new Error(data.error.message || JSON.stringify(data.error));
+    if (data.error) { throw new Error(data.error.message || JSON.stringify(data.error)); }
     var txt = "";
     for (var i = 0; i < data.content.length; i++) {
-      if (data.content[i].type === "text") txt += data.content[i].text;
+      if (data.content[i].type === "text") { txt += data.content[i].text; }
     }
     txt = txt.replace(/```json/g, "").replace(/```/g, "").trim();
     var parsed = JSON.parse(txt);
