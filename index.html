@@ -196,7 +196,7 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
       <div class="lead-row">
         <div class="lead-field">
           <label for="lg-company">Your Company name</label>
-          <input type="text" id="lg-company" placeholder="Acme Inc." autocomplete="organization"/>
+          <input type="text" id="lg-company" placeholder="Your Company" autocomplete="organization"/>
         </div>
         <div class="lead-field">
           <label for="lg-phone">Phone (optional)</label>
@@ -715,7 +715,7 @@ function dlPDF() {
 
   // Tier 1
   nd(72);
-  var isRec1 = d.suggested_tier === "starter";
+  var isRec1 = d.suggested_tier === "Starter";
   sf(isRec1 ? TL : LG); doc.roundedRect(L, y, CW, 68, 2, 2, "F");
   if (isRec1) { sd(T); doc.setLineWidth(1.2); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
   else { sd(BDR); doc.setLineWidth(0.3); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
@@ -732,7 +732,7 @@ function dlPDF() {
   st(INK); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
   for (var f1 = 0; f1 < t1feats.length; f1++) { sf(T); doc.circle(L + 7, y + 35 + f1 * 5.5, 1.2, "F"); st(INK); doc.text(t1feats[f1], L + 11, y + 36 + f1 * 5.5); }
   sd(BDR); doc.setLineWidth(0.2); doc.line(L + CW/2 + 4, y + 29, L + CW - 4, y + 29);
-  st(INK); doc.setFont("helvetica","bold"); doc.setFontSize(8); doc.text("Best for: Grade B or C", L + CW/2 + 6, y + 36);
+  st(INK); doc.setFont("helvetica","bold"); doc.setFontSize(8); doc.text("Best for: Grade A or B", L + CW/2 + 6, y + 36);
   st(MID); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
   var bf1 = doc.splitTextToSize("Mostly visible but needs targeted fixes to close the gap. Delivery: 5 business days. Up to 10 pages.", CW/2 - 12);
   for (var bf1i = 0; bf1i < Math.min(bf1.length, 3); bf1i++) { doc.text(bf1[bf1i], L + CW/2 + 6, y + 43 + bf1i * 4.5); }
@@ -757,7 +757,7 @@ function dlPDF() {
   st(INK); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
   for (var f2 = 0; f2 < t2feats.length; f2++) { sf(BLU); doc.circle(L + 7, y + 35 + f2 * 5.5, 1.2, "F"); st(INK); doc.text(t2feats[f2], L + 11, y + 36 + f2 * 5.5); }
   sd(BDR); doc.setLineWidth(0.2); doc.line(L + CW/2 + 4, y + 29, L + CW - 4, y + 29);
-  st(INK); doc.setFont("helvetica","bold"); doc.setFontSize(8); doc.text("Best for: Grade D or F", L + CW/2 + 6, y + 36);
+  st(INK); doc.setFont("helvetica","bold"); doc.setFontSize(8); doc.text("Best for: Grade C or D", L + CW/2 + 6, y + 36);
   st(MID); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
   var bf2 = doc.splitTextToSize("Effectively invisible to AI agents. Needs a complete transformation. Delivery: 7-10 business days. Up to 25 pages.", CW/2 - 12);
   for (var bf2i = 0; bf2i < Math.min(bf2.length, 3); bf2i++) { doc.text(bf2[bf2i], L + CW/2 + 6, y + 43 + bf2i * 4.5); }
@@ -767,7 +767,7 @@ function dlPDF() {
 
   // Tier 3
   nd(72);
-  var isRec3 = d.suggested_tier === "agency";
+  var isRec3 = d.suggested_tier === "Agency";
   sf(isRec3 ? [245,238,255] : LG); doc.roundedRect(L, y, CW, 68, 2, 2, "F");
   if (isRec3) { sd([130,80,200]); doc.setLineWidth(1.2); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
   else { sd(BDR); doc.setLineWidth(0.3); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
@@ -784,7 +784,7 @@ function dlPDF() {
   st(INK); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
   for (var f3 = 0; f3 < t3feats.length; f3++) { sf([130,80,200]); doc.circle(L + 7, y + 35 + f3 * 5.5, 1.2, "F"); st(INK); doc.text(t3feats[f3], L + 11, y + 36 + f3 * 5.5); }
   sd(BDR); doc.setLineWidth(0.2); doc.line(L + CW/2 + 4, y + 29, L + CW - 4, y + 29);
-  st(INK); doc.setFont("helvetica","bold"); doc.setFontSize(8); doc.text("Best for: Grade A or B", L + CW/2 + 6, y + 36);
+  st(INK); doc.setFont("helvetica","bold"); doc.setFontSize(8); doc.text("Best for: Grade C, D or F", L + CW/2 + 6, y + 36);
   st(MID); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
   var bf3 = doc.splitTextToSize("AI crawler standards evolve monthly. Stay ahead of competitors with continuous monitoring and maintenance.", CW/2 - 12);
   for (var bf3i = 0; bf3i < Math.min(bf3.length, 3); bf3i++) { doc.text(bf3[bf3i], L + CW/2 + 6, y + 43 + bf3i * 4.5); }
