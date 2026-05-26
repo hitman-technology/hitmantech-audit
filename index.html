@@ -642,120 +642,96 @@ function dlPDF() {
 
   // PDF PAGE: IMPLEMENTATION PACKAGES
   ph("Suggested Implementation Package");
-  var pricingIntro = "Your grade determines the right starting point. Each tier is scoped by page count. Enterprise and large sites receive custom pricing.";
-  var piLines = doc.splitTextToSize(pricingIntro, CW);
+  nd(12);
+  var introText = "Your grade determines the right starting point. Each tier is scoped by page count. Enterprise and large sites receive custom pricing.";
+  var introLines = doc.splitTextToSize(introText, CW);
   doc.setFont("helvetica","normal"); doc.setFontSize(9); st(MID);
-  for (var pil = 0; pil < piLines.length; pil++) { doc.text(piLines[pil], L, y); y += 5; }
-  y += 4;
+  for (var pil2 = 0; pil2 < introLines.length; pil2++) { doc.text(introLines[pil2], L, y); y += 5; }
+  y += 6;
 
-  var priceTiers = [
-    {
-      name: "Tier 1 - Quick Wins",
-      price: "$1,500",
-      note: "one-time",
-      col: T,
-      bg: TL,
-      features: ["llms.txt creation and deployment","robots.txt AI crawler permissions","Meta titles and descriptions optimised","Basic Organization schema added","Sitemap verification and submission","30-day re-audit included"],
-      bestfor: "Best for: Grade B or C",
-      bestdesc: "Mostly visible but needs targeted fixes. Delivery: 5 business days. Up to 10 pages.",
-      enterprise: ""
-    },
-    {
-      name: "Tier 2 - Full Implementation",
-      price: "$3,500",
-      note: "one-time",
-      col: BLU,
-      bg: [230,240,255],
-      features: ["Everything in Tier 1","Full Schema.org structured data","Content rewrite for LLM interpretability","Agentic navigation and form fixes","Commerce readiness optimisation","60-day re-audit with comparison report"],
-      bestfor: "Best for: Grade D or F",
-      bestdesc: "Effectively invisible to AI agents. Needs complete transformation. Delivery: 7-10 business days. Up to 25 pages.",
-      enterprise: "Sites over 25 pages or enterprise clients require custom pricing."
-    },
-    {
-      name: "Tier 3 - Ongoing Retainer",
-      price: "$499/mo",
-      note: "per month",
-      col: [130,80,200],
-      bg: [245,238,255],
-      features: ["Monthly LLM readiness re-audit","Schema and content updates as protocols change","Competitor benchmarking","Priority support","Available standalone or add-on to Tier 1 or 2"],
-      bestfor: "Best for: Grade A or B",
-      bestdesc: "AI crawler standards evolve monthly. Stay ahead of competitors with continuous monitoring.",
-      enterprise: ""
-    }
-  ];
-
-  var ptW = (CW - 8) / 3;
-  var ptStartY = y;
-  var ptMaxH = 0;
-
-  // First pass - draw all three cards
-  for (var pti = 0; pti < priceTiers.length; pti++) {
-    var pt = priceTiers[pti];
-    var ptX = L + pti * (ptW + 4);
-    var ptY = ptStartY;
-    var isRec = (d.suggested_tier === "starter" && pti === 0) || (d.suggested_tier === "pro" && pti === 1) || (d.suggested_tier === "agency" && pti === 2);
-
-    // Card background
-    sf(pt.bg); doc.roundedRect(ptX, ptY, ptW, 95, 2, 2, "F");
-    if (isRec) {
-      sd(pt.col); doc.setLineWidth(1.5); doc.roundedRect(ptX, ptY, ptW, 95, 2, 2, "S");
-      sf(pt.col); doc.roundedRect(ptX + ptW/2 - 18, ptY - 4, 36, 7, 2, 2, "F");
-      st(WHT); doc.setFont("helvetica","bold"); doc.setFontSize(6);
-      doc.text("RECOMMENDED FOR YOU", ptX + ptW/2, ptY - 0.5, {align:"center"});
-    } else {
-      sd(BDR); doc.setLineWidth(0.3); doc.roundedRect(ptX, ptY, ptW, 95, 2, 2, "S");
-    }
-
-    // Tier name
-    st(MID); doc.setFont("helvetica","bold"); doc.setFontSize(7.5);
-    doc.text(pt.name.toUpperCase(), ptX + 5, ptY + 8);
-
-    // Price
-    st(pt.col); doc.setFont("helvetica","bold"); doc.setFontSize(16);
-    doc.text(pt.price, ptX + 5, ptY + 20);
-    st(MID); doc.setFont("helvetica","normal"); doc.setFontSize(7);
-    doc.text(pt.note, ptX + 5, ptY + 25);
-
-    // Divider
-    sd(BDR); doc.setLineWidth(0.2); doc.line(ptX + 4, ptY + 29, ptX + ptW - 4, ptY + 29);
-
-    // Features
-    st(INK); doc.setFont("helvetica","normal"); doc.setFontSize(7);
-    for (var pfi = 0; pfi < pt.features.length; pfi++) {
-      sf(pt.col); doc.circle(ptX + 6, ptY + 34 + pfi * 6, 1, "F");
-      st(INK); doc.text(pt.features[pfi], ptX + 9, ptY + 35 + pfi * 6);
-    }
-
-    // Divider 2
-    var divY2 = ptY + 34 + pt.features.length * 6 + 2;
-    sd(BDR); doc.setLineWidth(0.2); doc.line(ptX + 4, divY2, ptX + ptW - 4, divY2);
-
-    // Best for
-    st(INK); doc.setFont("helvetica","bold"); doc.setFontSize(7.5);
-    doc.text(pt.bestfor, ptX + 5, divY2 + 6);
-    st(MID); doc.setFont("helvetica","normal"); doc.setFontSize(6.5);
-    var bdLines = doc.splitTextToSize(pt.bestdesc, ptW - 10);
-    for (var bdl = 0; bdl < Math.min(bdLines.length, 3); bdl++) {
-      doc.text(bdLines[bdl], ptX + 5, divY2 + 12 + bdl * 4);
-    }
-
-    // Enterprise note
-    if (pt.enterprise) {
-      st([180,180,180]); doc.setFont("helvetica","normal"); doc.setFontSize(6);
-      var enLines = doc.splitTextToSize(pt.enterprise, ptW - 10);
-      doc.text(enLines[0] || "", ptX + 5, ptY + 90);
-    }
+  // Tier 1
+  nd(72);
+  var isRec1 = d.suggested_tier === "starter";
+  sf(isRec1 ? TL : LG); doc.roundedRect(L, y, CW, 68, 2, 2, "F");
+  if (isRec1) { sd(T); doc.setLineWidth(1.2); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
+  else { sd(BDR); doc.setLineWidth(0.3); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
+  if (isRec1) {
+    sf(T); doc.roundedRect(L + CW/2 - 24, y - 4, 48, 7, 2, 2, "F");
+    st(WHT); doc.setFont("helvetica","bold"); doc.setFontSize(6.5);
+    doc.text("RECOMMENDED FOR YOU", L + CW/2, y - 0.8, {align:"center"});
   }
+  st(MID); doc.setFont("helvetica","bold"); doc.setFontSize(7); doc.text("TIER 1 - QUICK WINS", L + 6, y + 8);
+  st(T); doc.setFont("helvetica","bold"); doc.setFontSize(18); doc.text("$1,500", L + 6, y + 20);
+  st(MID); doc.setFont("helvetica","normal"); doc.setFontSize(7); doc.text("one-time", L + 6, y + 25);
+  sd(BDR); doc.setLineWidth(0.2); doc.line(L + 4, y + 29, L + CW/2 - 4, y + 29);
+  var t1feats = ["llms.txt creation and deployment", "robots.txt AI crawler permissions", "Meta titles and descriptions optimised", "Basic Organization schema added", "Sitemap verification and submission", "30-day re-audit included"];
+  st(INK); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
+  for (var f1 = 0; f1 < t1feats.length; f1++) { sf(T); doc.circle(L + 7, y + 35 + f1 * 5.5, 1.2, "F"); st(INK); doc.text(t1feats[f1], L + 11, y + 36 + f1 * 5.5); }
+  sd(BDR); doc.setLineWidth(0.2); doc.line(L + CW/2 + 4, y + 29, L + CW - 4, y + 29);
+  st(INK); doc.setFont("helvetica","bold"); doc.setFontSize(8); doc.text("Best for: Grade B or C", L + CW/2 + 6, y + 36);
+  st(MID); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
+  var bf1 = doc.splitTextToSize("Mostly visible but needs targeted fixes to close the gap. Delivery: 5 business days. Up to 10 pages.", CW/2 - 12);
+  for (var bf1i = 0; bf1i < Math.min(bf1.length, 3); bf1i++) { doc.text(bf1[bf1i], L + CW/2 + 6, y + 43 + bf1i * 4.5); }
+  y += 74;
 
-  y = ptStartY + 100;
+  // Tier 2
+  nd(72);
+  var isRec2 = d.suggested_tier === "pro";
+  sf(isRec2 ? [230,245,255] : LG); doc.roundedRect(L, y, CW, 68, 2, 2, "F");
+  if (isRec2) { sd(BLU); doc.setLineWidth(1.2); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
+  else { sd(BDR); doc.setLineWidth(0.3); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
+  if (isRec2) {
+    sf(BLU); doc.roundedRect(L + CW/2 - 24, y - 4, 48, 7, 2, 2, "F");
+    st(WHT); doc.setFont("helvetica","bold"); doc.setFontSize(6.5);
+    doc.text("RECOMMENDED FOR YOU", L + CW/2, y - 0.8, {align:"center"});
+  }
+  st(MID); doc.setFont("helvetica","bold"); doc.setFontSize(7); doc.text("TIER 2 - FULL IMPLEMENTATION", L + 6, y + 8);
+  st(BLU); doc.setFont("helvetica","bold"); doc.setFontSize(18); doc.text("$3,500", L + 6, y + 20);
+  st(MID); doc.setFont("helvetica","normal"); doc.setFontSize(7); doc.text("one-time", L + 6, y + 25);
+  sd(BDR); doc.setLineWidth(0.2); doc.line(L + 4, y + 29, L + CW/2 - 4, y + 29);
+  var t2feats = ["Everything in Tier 1", "Full Schema.org structured data", "Content rewrite for LLM interpretability", "Agentic navigation and form fixes", "Commerce readiness optimisation", "60-day re-audit with comparison report"];
+  st(INK); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
+  for (var f2 = 0; f2 < t2feats.length; f2++) { sf(BLU); doc.circle(L + 7, y + 35 + f2 * 5.5, 1.2, "F"); st(INK); doc.text(t2feats[f2], L + 11, y + 36 + f2 * 5.5); }
+  sd(BDR); doc.setLineWidth(0.2); doc.line(L + CW/2 + 4, y + 29, L + CW - 4, y + 29);
+  st(INK); doc.setFont("helvetica","bold"); doc.setFontSize(8); doc.text("Best for: Grade D or F", L + CW/2 + 6, y + 36);
+  st(MID); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
+  var bf2 = doc.splitTextToSize("Effectively invisible to AI agents. Needs a complete transformation. Delivery: 7-10 business days. Up to 25 pages.", CW/2 - 12);
+  for (var bf2i = 0; bf2i < Math.min(bf2.length, 3); bf2i++) { doc.text(bf2[bf2i], L + CW/2 + 6, y + 43 + bf2i * 4.5); }
+  st([170,170,170]); doc.setFontSize(6.5);
+  doc.text("Sites over 25 pages or enterprise clients require custom pricing.", L + CW/2 + 6, y + 61);
+  y += 74;
 
-  // CTA line
-  nd(16);
+  // Tier 3
+  nd(72);
+  var isRec3 = d.suggested_tier === "agency";
+  sf(isRec3 ? [245,238,255] : LG); doc.roundedRect(L, y, CW, 68, 2, 2, "F");
+  if (isRec3) { sd([130,80,200]); doc.setLineWidth(1.2); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
+  else { sd(BDR); doc.setLineWidth(0.3); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
+  if (isRec3) {
+    sf([130,80,200]); doc.roundedRect(L + CW/2 - 24, y - 4, 48, 7, 2, 2, "F");
+    st(WHT); doc.setFont("helvetica","bold"); doc.setFontSize(6.5);
+    doc.text("RECOMMENDED FOR YOU", L + CW/2, y - 0.8, {align:"center"});
+  }
+  st(MID); doc.setFont("helvetica","bold"); doc.setFontSize(7); doc.text("TIER 3 - ONGOING RETAINER", L + 6, y + 8);
+  st([130,80,200]); doc.setFont("helvetica","bold"); doc.setFontSize(18); doc.text("$499/mo", L + 6, y + 20);
+  st(MID); doc.setFont("helvetica","normal"); doc.setFontSize(7); doc.text("per month", L + 6, y + 25);
+  sd(BDR); doc.setLineWidth(0.2); doc.line(L + 4, y + 29, L + CW/2 - 4, y + 29);
+  var t3feats = ["Monthly LLM readiness re-audit", "Schema and content updates as protocols change", "Competitor benchmarking", "Priority support", "Available standalone or add-on to Tier 1 or 2"];
+  st(INK); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
+  for (var f3 = 0; f3 < t3feats.length; f3++) { sf([130,80,200]); doc.circle(L + 7, y + 35 + f3 * 5.5, 1.2, "F"); st(INK); doc.text(t3feats[f3], L + 11, y + 36 + f3 * 5.5); }
+  sd(BDR); doc.setLineWidth(0.2); doc.line(L + CW/2 + 4, y + 29, L + CW - 4, y + 29);
+  st(INK); doc.setFont("helvetica","bold"); doc.setFontSize(8); doc.text("Best for: Grade A or B", L + CW/2 + 6, y + 36);
+  st(MID); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
+  var bf3 = doc.splitTextToSize("AI crawler standards evolve monthly. Stay ahead of competitors with continuous monitoring and maintenance.", CW/2 - 12);
+  for (var bf3i = 0; bf3i < Math.min(bf3.length, 3); bf3i++) { doc.text(bf3[bf3i], L + CW/2 + 6, y + 43 + bf3i * 4.5); }
+  y += 74;
+
+  // CTA bar
+  nd(14);
   sf(TL); doc.roundedRect(L, y, CW, 12, 2, 2, "F");
   st(DKTEAL); doc.setFont("helvetica","bold"); doc.setFontSize(9);
   doc.text("Ready to get started? Contact Hitman Technologies today.", W/2, y + 8, {align:"center"});
   y += 18;
-
 
     ph("Next Steps with Hitman Technologies");
   nd(60);
@@ -784,7 +760,7 @@ function dlPDF() {
   doc.save("hitmantech-llm-readiness-"+slug+"-"+new Date().toISOString().slice(0,10)+".pdf");
 }
 
-var SYS = "You are an LLM and agent readiness expert for Hitman Technologies (hitmantech.com). Cloudflare CEO Matthew Prince stated in 2026 that bot traffic will exceed human traffic by 2027. IBM projects AI agents will generate 60-70% of all internet traffic by 2027. Websites that are not LLM-friendly become ghosts invisible to the systems making recommendations and purchases on behalf of users. Audit the given URL and return ONLY valid compact JSON with no markdown and no backticks. The JSON structure is: url string, overall_score integer 0-100, checks_passed integer, checks_total 30, critical_issues integer, pages_crawled integer, strengths array of objects with title and desc, weaknesses array of objects with title and desc, llm_readiness object with claude chatgpt gemini perplexity each having score integer can_find boolean can_read boolean can_price boolean can_act boolean, categories array, recommendations array, suggested_tier string. Categories must use EXACTLY these 6 ids and max scores: discoverability 20, interpretability 20, structured_data 20, navigation 20, commerce 15, api 5. Category names: LLM Discoverability, Content Interpretability, Structured Data, Agentic Navigation, Commerce Readiness, API Integration. Each category has 5 checks with name status description agent_impact and impact. Status values are pass warn fail or info. IMPORTANT: For the llms.txt check in LLM Discoverability, note in the description that Google Search does not use llms.txt but Claude, ChatGPT, Perplexity and autonomous agents do reference it - so it matters for the broader agentic web even if not for Google rankings. Provide exactly 5 strengths and 5 weaknesses. Provide exactly 7 recommendations each with title description agent_benefit and impact. Keep all text fields under 130 characters. suggested_tier is starter if score 75 or above (Grade A or B), pro if score 35 to 74 (Grade C or D - recommend Full Implementation), agency if score below 35 (Grade F - recommend Ongoing Retainer).";
+var SYS = "You are an LLM and agent readiness expert for Hitman Technologies (hitmantech.com). Cloudflare CEO Matthew Prince stated in 2026 that bot traffic will exceed human traffic by 2027. IBM projects AI agents will generate 60-70% of all internet traffic by 2027. Websites that are not LLM-friendly become ghosts invisible to the systems making recommendations and purchases on behalf of users. Audit the given URL and return ONLY valid compact JSON with no markdown and no backticks. The JSON structure is: url string, overall_score integer 0-100, checks_passed integer, checks_total 30, critical_issues integer, pages_crawled integer, strengths array of objects with title and desc, weaknesses array of objects with title and desc, llm_readiness object with claude chatgpt gemini perplexity each having score integer can_find boolean can_read boolean can_price boolean can_act boolean, categories array, recommendations array, suggested_tier string. Categories must use EXACTLY these 6 ids and max scores: discoverability 20, interpretability 20, structured_data 20, navigation 20, commerce 15, api 5. Category names: LLM Discoverability, Content Interpretability, Structured Data, Agentic Navigation, Commerce Readiness, API Integration. Each category has 5 checks with name status description agent_impact and impact. Status values are pass warn fail or info. IMPORTANT: For the llms.txt check in LLM Discoverability, note in the description that Google Search does not use llms.txt but Claude, ChatGPT, Perplexity and autonomous agents do reference it - so it matters for the broader agentic web even if not for Google rankings. Provide exactly 5 strengths and 5 weaknesses. Provide exactly 7 recommendations each with title description agent_benefit and impact. Keep all text fields under 130 characters. suggested_tier is starter if score 70 or above (Grade A or B - recommend Quick Wins Tier 1), pro if score 35 to 69 (Grade C or D - recommend Full Implementation Tier 2), agency if score below 35 (Grade F - recommend Ongoing Retainer Tier 3).";
 
 async function runAudit() {
   var raw = document.getElementById("url-in").value.trim();
