@@ -227,6 +227,10 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 var auditData = null;
+// Set your Zapier webhook URL here to receive lead notifications
+// Get this from zapier.com - create a Zap with "Webhooks by Zapier" trigger
+window.ZAPIER_WEBHOOK_URL = ""; // e.g. "https://hooks.zapier.com/hooks/catch/123456/abcdef/"
+
 
 var GHOST_DATA = {
   A: {icon: "A+", title: "Agent-Ready: Fully visible and actionable on the agentic web", desc: "Claude, ChatGPT, Gemini and autonomous agents can find your business, understand what you offer, read your pricing, and complete transactions."},
@@ -264,6 +268,14 @@ function openCat(id) {
 
 function showResults(d) {
   auditData = d;
+  // Override suggested_tier based on score - do not trust AI output
+  if (d.overall_score >= 70) {
+    d.suggested_tier = "starter";
+  } else if (d.overall_score >= 35) {
+    d.suggested_tier = "pro";
+  } else {
+    d.suggested_tier = "agency";
+  }
   var g = grade(d.overall_score);
   var gh = GHOST_DATA[g];
   var html = "";
@@ -470,6 +482,10 @@ function resetAudit() {
 function dlPDF() {
   if (!auditData) { alert("Please run an audit first."); return; }
   var d = auditData;
+  // Ensure tier is correct based on score
+  if (d.overall_score >= 70) { d.suggested_tier = "starter"; }
+  else if (d.overall_score >= 35) { d.suggested_tier = "pro"; }
+  else { d.suggested_tier = "agency"; }
   var doc = new window.jspdf.jsPDF({orientation: "portrait", unit: "mm", format: "a4"});
   var W = 210, L = 18, R = 18, CW = W - L - R, y = 0;
   var T=[21,164,162],INK=[8,14,13],MID=[90,112,108],BDR=[212,226,223];
@@ -823,6 +839,15 @@ function submitLeadGate() {
   // Store lead data for use after audit
   window.leadData = {name: name, email: email, company: company, phone: phone, timestamp: new Date().toISOString()};
   console.log("Lead captured:", JSON.stringify(window.leadData));
+  // Send lead to webhook - replace ZAPIER_WEBHOOK_URL with your actual Zapier webhook
+  var webhookUrl = window.ZAPIER_WEBHOOK_URL || "";
+  if (webhookUrl) {
+    fetch(webhookUrl, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(window.leadData)
+    }).catch(function(e) { console.log("Webhook error:", e.message); });
+  }
 
   // Show the audit tool and hide the gate
   document.getElementById("lead-gate").style.display = "none";
