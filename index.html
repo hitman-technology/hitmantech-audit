@@ -143,7 +143,21 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
 .empty{text-align:center;padding:50px 20px;color:#8fa8a4;background:#fff;border-radius:10px;border:1px solid #d4e2df}
 .empty h3{font-size:16px;margin-bottom:10px;color:#5a706c;font-weight:800}
 .empty p{font-size:12px;line-height:1.8;max-width:500px;margin:0 auto}
-@media(max-width:600px){.sw-grid,.llm-grid,.tier-grid,.hero-stats{grid-template-columns:1fr}.url-row{flex-direction:column}}
+.lead-gate{background:#fff;border:1px solid #d4e2df;border-radius:0 0 10px 10px;margin-bottom:20px}
+.lead-gate-inner{padding:28px 24px}
+.lead-gate-header{margin-bottom:20px}
+.lead-gate-title{font-size:18px;font-weight:800;color:#080e0d;margin-bottom:6px}
+.lead-gate-sub{font-size:13px;color:#5a706c;line-height:1.6}
+.lead-fields{}
+.lead-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.lead-field{display:flex;flex-direction:column;gap:4px}
+.lead-field label{font-size:11px;font-weight:700;color:#5a706c;text-transform:uppercase;letter-spacing:.05em}
+.lead-field input{padding:10px 14px;border:1.5px solid #d4e2df;border-radius:8px;font-size:13px;outline:none;font-family:sans-serif}
+.lead-field input:focus{border-color:#15A4A2}
+.lead-submit-btn{width:100%;margin-top:4px;background:#15A4A2;color:#fff;border:none;padding:13px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.01em}
+.lead-submit-btn:hover{background:#0c7a78}
+.lead-privacy{font-size:11px;color:#8fa8a4;margin-top:10px;line-height:1.5;text-align:center}
+@media(max-width:600px){.sw-grid,.llm-grid,.tier-grid,.hero-stats,.lead-row{grid-template-columns:1fr}.url-row{flex-direction:column}}
 </style>
 </head>
 <body>
@@ -162,6 +176,40 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
     <div class="hstat"><div class="hstat-val">2027</div><div class="hstat-lbl">when bots will outnumber human users</div><div class="hstat-src">Source: Cloudflare CEO, TechCrunch</div></div>
   </div>
 </div>
+<div id="lead-gate" class="lead-gate">
+  <div class="lead-gate-inner">
+    <div class="lead-gate-header">
+      <div class="lead-gate-title">Get your free LLM Readiness Score</div>
+      <div class="lead-gate-sub">Enter your details to run the audit. We will send you the full report and implementation guide.</div>
+    </div>
+    <div class="lead-fields">
+      <div class="lead-row">
+        <div class="lead-field">
+          <label for="lg-name">Full name</label>
+          <input type="text" id="lg-name" placeholder="Jane Smith" autocomplete="name"/>
+        </div>
+        <div class="lead-field">
+          <label for="lg-email">Work email</label>
+          <input type="email" id="lg-email" placeholder="jane@company.com" autocomplete="email"/>
+        </div>
+      </div>
+      <div class="lead-row">
+        <div class="lead-field">
+          <label for="lg-company">Company name</label>
+          <input type="text" id="lg-company" placeholder="Acme Inc." autocomplete="organization"/>
+        </div>
+        <div class="lead-field">
+          <label for="lg-phone">Phone (optional)</label>
+          <input type="tel" id="lg-phone" placeholder="+1 555 000 0000" autocomplete="tel"/>
+        </div>
+      </div>
+      <button class="lead-submit-btn" onclick="submitLeadGate()">Start my free audit</button>
+      <div class="lead-privacy">Your information is kept private and never shared. By submitting you agree to be contacted by Hitman Technologies.</div>
+    </div>
+  </div>
+</div>
+
+<div id="audit-tool" style="display:none">
 <div class="url-section">
   <div class="url-row">
     <input type="url" id="url-in" placeholder="https://yourwebsite.com" autocomplete="off"/>
@@ -426,12 +474,12 @@ function dlPDF() {
   var W = 210, L = 18, R = 18, CW = W - L - R, y = 0;
   var T=[21,164,162],INK=[8,14,13],MID=[90,112,108],BDR=[212,226,223];
   var RED=[224,59,58],AMB=[240,160,32],BLU=[52,128,204],WHT=[255,255,255];
-  var LG=[242,246,245],DK=[22,36,32],TL=[224,245,244],PAL=[159,181,174];
+  var LG=[242,246,245],DK=[22,36,32],TL=[224,245,244],PAL=[159,181,174],DKTEAL=[12,82,80];
 
   function sf(c){doc.setFillColor(c[0],c[1],c[2]);}
   function st(c){doc.setTextColor(c[0],c[1],c[2]);}
   function sd(c){doc.setDrawColor(c[0],c[1],c[2]);}
-  function scol(s){return s>=75?T:s>=50?BLU:s>=30?AMB:RED;}
+  function scol(s){return s>=70?T:s>=50?BLU:s>=35?AMB:RED;}
   function gr(s){return s>=85?"A":s>=70?"B":s>=50?"C":s>=35?"D":"F";}
   function np(){doc.addPage();y=0;}
   function nd(n){if(y+n>272){np();}}
@@ -761,6 +809,28 @@ function dlPDF() {
 }
 
 var SYS = "You are an LLM and agent readiness expert for Hitman Technologies (hitmantech.com). Cloudflare CEO Matthew Prince stated in 2026 that bot traffic will exceed human traffic by 2027. IBM projects AI agents will generate 60-70% of all internet traffic by 2027. Websites that are not LLM-friendly become ghosts invisible to the systems making recommendations and purchases on behalf of users. Audit the given URL and return ONLY valid compact JSON with no markdown and no backticks. The JSON structure is: url string, overall_score integer 0-100, checks_passed integer, checks_total 30, critical_issues integer, pages_crawled integer, strengths array of objects with title and desc, weaknesses array of objects with title and desc, llm_readiness object with claude chatgpt gemini perplexity each having score integer can_find boolean can_read boolean can_price boolean can_act boolean, categories array, recommendations array, suggested_tier string. Categories must use EXACTLY these 6 ids and max scores: discoverability 20, interpretability 20, structured_data 20, navigation 20, commerce 15, api 5. Category names: LLM Discoverability, Content Interpretability, Structured Data, Agentic Navigation, Commerce Readiness, API Integration. Each category has 5 checks with name status description agent_impact and impact. Status values are pass warn fail or info. IMPORTANT: For the llms.txt check in LLM Discoverability, note in the description that Google Search does not use llms.txt but Claude, ChatGPT, Perplexity and autonomous agents do reference it - so it matters for the broader agentic web even if not for Google rankings. Provide exactly 5 strengths and 5 weaknesses. Provide exactly 7 recommendations each with title description agent_benefit and impact. Keep all text fields under 130 characters. suggested_tier is starter if score 70 or above (Grade A or B - recommend Quick Wins Tier 1), pro if score 35 to 69 (Grade C or D - recommend Full Implementation Tier 2), agency if score below 35 (Grade F - recommend Ongoing Retainer Tier 3).";
+
+function submitLeadGate() {
+  var name = document.getElementById("lg-name").value.trim();
+  var email = document.getElementById("lg-email").value.trim();
+  var company = document.getElementById("lg-company").value.trim();
+  var phone = document.getElementById("lg-phone").value.trim();
+
+  if (!name) { alert("Please enter your full name."); return; }
+  if (!email || !email.includes("@")) { alert("Please enter a valid email address."); return; }
+  if (!company) { alert("Please enter your company name."); return; }
+
+  // Store lead data for use after audit
+  window.leadData = {name: name, email: email, company: company, phone: phone, timestamp: new Date().toISOString()};
+  console.log("Lead captured:", JSON.stringify(window.leadData));
+
+  // Show the audit tool and hide the gate
+  document.getElementById("lead-gate").style.display = "none";
+  document.getElementById("audit-tool").style.display = "block";
+
+  // Update status with personalised message
+  setStatus("Welcome " + name + "! Enter your website URL below to run your free LLM Readiness Audit.", "");
+}
 
 async function runAudit() {
   var raw = document.getElementById("url-in").value.trim();
