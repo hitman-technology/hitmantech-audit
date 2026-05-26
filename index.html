@@ -157,6 +157,30 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
 .lead-submit-btn{width:100%;margin-top:4px;background:#15A4A2;color:#fff;border:none;padding:13px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.01em}
 .lead-submit-btn:hover{background:#0c7a78}
 .lead-privacy{font-size:11px;color:#8fa8a4;margin-top:10px;line-height:1.5;text-align:center}
+
+/* -- SCANNER ANIMATION -- */
+.scanner-wrap{text-align:center;padding:48px 24px 40px;background:#fff;border-radius:10px;border:1px solid #d4e2df}
+.scanner-visual{position:relative;width:100px;height:100px;margin:0 auto 24px}
+.scanner-ring{position:absolute;border-radius:50%;border:3px solid transparent;animation:scanSpin linear infinite}
+.scanner-ring-1{inset:0;border-top-color:#15A4A2;border-right-color:#15A4A2;animation-duration:1.2s}
+.scanner-ring-2{inset:10px;border-top-color:#6ecfce;animation-duration:1.8s;animation-direction:reverse}
+.scanner-ring-3{inset:20px;border-top-color:#0c7a78;border-right-color:#0c7a78;animation-duration:2.4s}
+.scanner-core{position:absolute;inset:32px;border-radius:50%;background:linear-gradient(135deg,#15A4A2,#0c7a78);display:flex;align-items:center;justify-content:center;animation:scanPulse 1.5s ease-in-out infinite}
+.scanner-core-dot{width:10px;height:10px;border-radius:50%;background:#fff;opacity:.9}
+.scanner-beam{position:absolute;inset:0;border-radius:50%;overflow:hidden}
+.scanner-beam::after{content:'';position:absolute;top:50%;left:50%;width:50%;height:2px;background:linear-gradient(90deg,rgba(21,164,162,.8),transparent);transform-origin:left center;animation:scanBeam 1.2s linear infinite}
+.scanner-title{font-size:17px;font-weight:800;color:#080e0d;margin-bottom:8px}
+.scanner-sub{font-size:13px;color:#5a706c;margin-bottom:20px;line-height:1.6}
+.scanner-steps{display:flex;flex-direction:column;gap:6px;max-width:360px;margin:0 auto}
+.scanner-step{display:flex;align-items:center;gap:10px;font-size:12px;color:#8fa8a4;padding:6px 12px;border-radius:7px;background:#f2f6f5;transition:all .3s}
+.scanner-step.active{background:#e0f5f4;color:#085041;font-weight:600}
+.scanner-step.done{background:#f2f6f5;color:#15A4A2}
+.step-dot{width:7px;height:7px;border-radius:50%;background:#d4e2df;flex-shrink:0;transition:background .3s}
+.scanner-step.active .step-dot{background:#15A4A2;animation:scanPulse 1s ease-in-out infinite}
+.scanner-step.done .step-dot{background:#15A4A2}
+@keyframes scanSpin{to{transform:rotate(360deg)}}
+@keyframes scanPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.85)}}
+@keyframes scanBeam{to{transform:rotate(360deg)}}
 @media(max-width:600px){.sw-grid,.llm-grid,.tier-grid,.hero-stats,.lead-row{grid-template-columns:1fr}.url-row{flex-direction:column}}
 </style>
 </head>
@@ -195,7 +219,7 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
       </div>
       <div class="lead-row">
         <div class="lead-field">
-          <label for="lg-company">Your Company name</label>
+          <label for="lg-company">Company name</label>
           <input type="text" id="lg-company" placeholder="Your Company" autocomplete="organization"/>
         </div>
         <div class="lead-field">
@@ -267,6 +291,7 @@ function openCat(id) {
 }
 
 function showResults(d) {
+  if (window._stepInterval) { clearInterval(window._stepInterval); window._stepInterval = null; }
   auditData = d;
   // Override suggested_tier based on score - do not trust AI output
   if (d.overall_score >= 70) {
@@ -392,32 +417,32 @@ function showResults(d) {
 
   var tiers = [
     {
-      id: "starter",
+      id: "Starter",
       n: "Tier 1 - Quick Wins",
       p: "$1,500",
       pnote: "one-time",
       features: ["llms.txt creation and deployment","robots.txt AI crawler permissions","Meta titles and descriptions optimised","Basic Organization schema added","Sitemap verification and submission","30-day re-audit included"],
-      bestfor: "Best for: Grade B or C",
+      bestfor: "Best for: Grade A or B",
       bestdesc: "Mostly visible but needs targeted fixes to close the gap. Delivery: 5 business days. Up to 10 pages.",
       enterprise: ""
     },
     {
-      id: "pro",
+      id: "Pro",
       n: "Tier 2 - Full Implementation",
       p: "$3,500",
       pnote: "one-time",
       features: ["Everything in Tier 1","Full Schema.org structured data","Content rewrite for LLM interpretability","Agentic navigation and form fixes","Commerce readiness optimisation","60-day re-audit with comparison report"],
-      bestfor: "Best for: Grade D or F",
+      bestfor: "Best for: Grade C or D",
       bestdesc: "Effectively invisible to AI agents and needs a complete transformation. Delivery: 7-10 business days. Up to 25 pages.",
       enterprise: "Sites over 25 pages or enterprise clients require custom pricing. Contact us for a scoped proposal."
     },
     {
-      id: "agency",
+      id: "Agency",
       n: "Tier 3 - Ongoing Retainer",
       p: "$499",
       pnote: "per month",
       features: ["Monthly LLM readiness re-audit","Schema and content updates as protocols change","Competitor benchmarking","Priority support","Available standalone or as add-on to Tier 1 or 2"],
-      bestfor: "Best for: Grade A or B",
+      bestfor: "Best for: Grade C or D",
       bestdesc: "AI crawler standards evolve monthly. Stay ahead of competitors with continuous monitoring and maintenance.",
       enterprise: ""
     }
@@ -732,7 +757,7 @@ function dlPDF() {
   st(INK); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
   for (var f1 = 0; f1 < t1feats.length; f1++) { sf(T); doc.circle(L + 7, y + 35 + f1 * 5.5, 1.2, "F"); st(INK); doc.text(t1feats[f1], L + 11, y + 36 + f1 * 5.5); }
   sd(BDR); doc.setLineWidth(0.2); doc.line(L + CW/2 + 4, y + 29, L + CW - 4, y + 29);
-  st(INK); doc.setFont("helvetica","bold"); doc.setFontSize(8); doc.text("Best for: Grade A or B", L + CW/2 + 6, y + 36);
+  st(INK); doc.setFont("helvetica","bold"); doc.setFontSize(8); doc.text("Best for: Grade B or C", L + CW/2 + 6, y + 36);
   st(MID); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
   var bf1 = doc.splitTextToSize("Mostly visible but needs targeted fixes to close the gap. Delivery: 5 business days. Up to 10 pages.", CW/2 - 12);
   for (var bf1i = 0; bf1i < Math.min(bf1.length, 3); bf1i++) { doc.text(bf1[bf1i], L + CW/2 + 6, y + 43 + bf1i * 4.5); }
@@ -740,7 +765,7 @@ function dlPDF() {
 
   // Tier 2
   nd(72);
-  var isRec2 = d.suggested_tier === "pro";
+  var isRec2 = d.suggested_tier === "Pro";
   sf(isRec2 ? [230,245,255] : LG); doc.roundedRect(L, y, CW, 68, 2, 2, "F");
   if (isRec2) { sd(BLU); doc.setLineWidth(1.2); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
   else { sd(BDR); doc.setLineWidth(0.3); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
@@ -757,7 +782,7 @@ function dlPDF() {
   st(INK); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
   for (var f2 = 0; f2 < t2feats.length; f2++) { sf(BLU); doc.circle(L + 7, y + 35 + f2 * 5.5, 1.2, "F"); st(INK); doc.text(t2feats[f2], L + 11, y + 36 + f2 * 5.5); }
   sd(BDR); doc.setLineWidth(0.2); doc.line(L + CW/2 + 4, y + 29, L + CW - 4, y + 29);
-  st(INK); doc.setFont("helvetica","bold"); doc.setFontSize(8); doc.text("Best for: Grade C or D", L + CW/2 + 6, y + 36);
+  st(INK); doc.setFont("helvetica","bold"); doc.setFontSize(8); doc.text("Best for: Grade D or F", L + CW/2 + 6, y + 36);
   st(MID); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
   var bf2 = doc.splitTextToSize("Effectively invisible to AI agents. Needs a complete transformation. Delivery: 7-10 business days. Up to 25 pages.", CW/2 - 12);
   for (var bf2i = 0; bf2i < Math.min(bf2.length, 3); bf2i++) { doc.text(bf2[bf2i], L + CW/2 + 6, y + 43 + bf2i * 4.5); }
@@ -784,7 +809,7 @@ function dlPDF() {
   st(INK); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
   for (var f3 = 0; f3 < t3feats.length; f3++) { sf([130,80,200]); doc.circle(L + 7, y + 35 + f3 * 5.5, 1.2, "F"); st(INK); doc.text(t3feats[f3], L + 11, y + 36 + f3 * 5.5); }
   sd(BDR); doc.setLineWidth(0.2); doc.line(L + CW/2 + 4, y + 29, L + CW - 4, y + 29);
-  st(INK); doc.setFont("helvetica","bold"); doc.setFontSize(8); doc.text("Best for: Grade C, D or F", L + CW/2 + 6, y + 36);
+  st(INK); doc.setFont("helvetica","bold"); doc.setFontSize(8); doc.text("Best for: Grade A or B", L + CW/2 + 6, y + 36);
   st(MID); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
   var bf3 = doc.splitTextToSize("AI crawler standards evolve monthly. Stay ahead of competitors with continuous monitoring and maintenance.", CW/2 - 12);
   for (var bf3i = 0; bf3i < Math.min(bf3.length, 3); bf3i++) { doc.text(bf3[bf3i], L + CW/2 + 6, y + 43 + bf3i * 4.5); }
@@ -869,7 +894,40 @@ async function runAudit() {
   if (!raw.startsWith("http")) { raw = "https://" + raw; }
   setStatus("Checking how Claude, ChatGPT, Gemini and Perplexity see " + raw + "...", "active");
   document.getElementById("run-btn").disabled = true;
-  document.getElementById("results").innerHTML = "<div class='empty'><h3>Auditing LLM readiness...</h3><p>Checking discoverability, content interpretability, structured data, agentic navigation, commerce readiness, and API integration.</p></div>";
+  document.getElementById("results").innerHTML = "<div class=\'scanner-wrap\'>" +
+    "<div class=\'scanner-visual\'>" +
+      "<div class=\'scanner-beam\'></div>" +
+      "<div class=\'scanner-ring scanner-ring-1\'></div>" +
+      "<div class=\'scanner-ring scanner-ring-2\'></div>" +
+      "<div class=\'scanner-ring scanner-ring-3\'></div>" +
+      "<div class=\'scanner-core\'><div class=\'scanner-core-dot\'></div></div>" +
+    "</div>" +
+    "<div class=\'scanner-title\'>Scanning " + raw.replace(/^https?:\/\//, '').split('/')[0] + "</div>" +
+    "<div class=\'scanner-sub\'>Checking how Claude, ChatGPT, Gemini and Perplexity<br/>see your website across 30 signals...</div>" +
+    "<div class=\'scanner-steps\'>" +
+      "<div class=\'scanner-step active\' id=\'step-1\'><div class=\'step-dot\'></div>LLM Discoverability</div>" +
+      "<div class=\'scanner-step\' id=\'step-2\'><div class=\'step-dot\'></div>Content Interpretability</div>" +
+      "<div class=\'scanner-step\' id=\'step-3\'><div class=\'step-dot\'></div>Structured Data</div>" +
+      "<div class=\'scanner-step\' id=\'step-4\'><div class=\'step-dot\'></div>Agentic Navigation</div>" +
+      "<div class=\'scanner-step\' id=\'step-5\'><div class=\'step-dot\'></div>Commerce Readiness</div>" +
+      "<div class=\'scanner-step\' id=\'step-6\'><div class=\'step-dot\'></div>API Integration</div>" +
+    "</div>" +
+  "</div>";
+
+  // Animate steps sequentially while scanning
+  var stepIndex = 1;
+  var stepInterval = setInterval(function() {
+    var prev = document.getElementById("step-" + stepIndex);
+    if (prev) { prev.classList.remove("active"); prev.classList.add("done"); }
+    stepIndex++;
+    if (stepIndex <= 6) {
+      var next = document.getElementById("step-" + stepIndex);
+      if (next) { next.classList.add("active"); }
+    } else {
+      clearInterval(stepInterval);
+    }
+  }, 3000);
+  window._stepInterval = stepInterval;
   try {
     var resp = await fetch("https://hitmantech-proxy.jmarino.workers.dev", {
       method: "POST",
@@ -892,6 +950,7 @@ async function runAudit() {
     setStatus("LLM Readiness Score: " + parsed.overall_score + "/100 - Grade " + grade(parsed.overall_score) + " - " + parsed.checks_passed + "/" + parsed.checks_total + " checks passed", "done");
     showResults(parsed);
   } catch(e) {
+    if (window._stepInterval) { clearInterval(window._stepInterval); window._stepInterval = null; }
     setStatus("Error: " + e.message, "error");
     document.getElementById("results").innerHTML = "<div class='empty'><h3>Audit failed</h3><p>" + e.message + "</p></div>";
   }
