@@ -195,15 +195,15 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
       </div>
       <div class="lead-row">
         <div class="lead-field">
-          <label for="lg-company">Company name</label>
-          <input type="text" id="lg-company" placeholder="Your Company" autocomplete="organization"/>
+          <label for="lg-company">Your Company name</label>
+          <input type="text" id="lg-company" placeholder="Acme Inc." autocomplete="organization"/>
         </div>
         <div class="lead-field">
           <label for="lg-phone">Phone (optional)</label>
-          <input type="tel" id="lg-phone" placeholder="+1 555 212 1212" autocomplete="tel"/>
+          <input type="tel" id="lg-phone" placeholder="+1 555 222 1212" autocomplete="tel"/>
         </div>
       </div>
-      <button class="lead-submit-btn" onclick="submitLeadGate()">Start my free audit</button>
+      <button class="lead-submit-btn" onclick="submitLeadGate()">Start My Free Audit</button>
       <div class="lead-privacy">Your information is kept private and never shared. By submitting you agree to be contacted by Hitman Technologies.</div>
     </div>
   </div>
@@ -392,7 +392,7 @@ function showResults(d) {
 
   var tiers = [
     {
-      id: "Starter",
+      id: "starter",
       n: "Tier 1 - Quick Wins",
       p: "$1,500",
       pnote: "one-time",
@@ -402,7 +402,7 @@ function showResults(d) {
       enterprise: ""
     },
     {
-      id: "Pro",
+      id: "pro",
       n: "Tier 2 - Full Implementation",
       p: "$3,500",
       pnote: "one-time",
@@ -412,7 +412,7 @@ function showResults(d) {
       enterprise: "Sites over 25 pages or enterprise clients require custom pricing. Contact us for a scoped proposal."
     },
     {
-      id: "Agency",
+      id: "agency",
       n: "Tier 3 - Ongoing Retainer",
       p: "$499",
       pnote: "per month",
@@ -844,7 +844,7 @@ function submitLeadGate() {
     timestamp: new Date().toISOString()
   };
 
-  // Send to Wix CRM via Cloudflare Worker
+  // Send to Wix CRM via Cloudflare Worker - fire and forget
   fetch("https://hitmantech-proxy.jmarino.workers.dev/lead", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
@@ -852,22 +852,14 @@ function submitLeadGate() {
   }).then(function(r) {
     return r.json();
   }).then(function(data) {
-    console.log("Lead saved to Wix CRM:", data);
+    console.log("Lead saved to Wix CRM:", JSON.stringify(data));
   }).catch(function(e) {
     console.log("Lead save error:", e.message);
   });
 
-  // Show audit tool regardless of CRM result
+  // Show audit tool immediately - do not wait for CRM response
   document.getElementById("lead-gate").style.display = "none";
   document.getElementById("audit-tool").style.display = "block";
-  setStatus("Welcome " + name + "! Enter your website URL below to run your free LLM Readiness Audit.", "");
-}
-
-  // Show the audit tool and hide the gate
-  document.getElementById("lead-gate").style.display = "none";
-  document.getElementById("audit-tool").style.display = "block";
-
-  // Update status with personalised message
   setStatus("Welcome " + name + "! Enter your website URL below to run your free LLM Readiness Audit.", "");
 }
 
