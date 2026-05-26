@@ -190,17 +190,17 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
         </div>
         <div class="lead-field">
           <label for="lg-email">Work email</label>
-          <input type="email" id="lg-email" placeholder="jane@company.com" autocomplete="email"/>
+          <input type="email" id="lg-email" placeholder="jane@yourcompany.com" autocomplete="email"/>
         </div>
       </div>
       <div class="lead-row">
         <div class="lead-field">
           <label for="lg-company">Company name</label>
-          <input type="text" id="lg-company" placeholder="Acme Inc." autocomplete="organization"/>
+          <input type="text" id="lg-company" placeholder="Your Company" autocomplete="organization"/>
         </div>
         <div class="lead-field">
           <label for="lg-phone">Phone (optional)</label>
-          <input type="tel" id="lg-phone" placeholder="+1 555 000 0000" autocomplete="tel"/>
+          <input type="tel" id="lg-phone" placeholder="+1 555 212 1212" autocomplete="tel"/>
         </div>
       </div>
       <button class="lead-submit-btn" onclick="submitLeadGate()">Start my free audit</button>
@@ -392,7 +392,7 @@ function showResults(d) {
 
   var tiers = [
     {
-      id: "starter",
+      id: "Starter",
       n: "Tier 1 - Quick Wins",
       p: "$1,500",
       pnote: "one-time",
@@ -402,7 +402,7 @@ function showResults(d) {
       enterprise: ""
     },
     {
-      id: "pro",
+      id: "Pro",
       n: "Tier 2 - Full Implementation",
       p: "$3,500",
       pnote: "one-time",
@@ -412,7 +412,7 @@ function showResults(d) {
       enterprise: "Sites over 25 pages or enterprise clients require custom pricing. Contact us for a scoped proposal."
     },
     {
-      id: "agency",
+      id: "Agency",
       n: "Tier 3 - Ongoing Retainer",
       p: "$499",
       pnote: "per month",
@@ -836,18 +836,32 @@ function submitLeadGate() {
   if (!email || !email.includes("@")) { alert("Please enter a valid email address."); return; }
   if (!company) { alert("Please enter your company name."); return; }
 
-  // Store lead data for use after audit
-  window.leadData = {name: name, email: email, company: company, phone: phone, timestamp: new Date().toISOString()};
-  console.log("Lead captured:", JSON.stringify(window.leadData));
-  // Send lead to webhook - replace ZAPIER_WEBHOOK_URL with your actual Zapier webhook
-  var webhookUrl = window.ZAPIER_WEBHOOK_URL || "";
-  if (webhookUrl) {
-    fetch(webhookUrl, {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(window.leadData)
-    }).catch(function(e) { console.log("Webhook error:", e.message); });
-  }
+  window.leadData = {
+    name: name,
+    email: email,
+    company: company,
+    phone: phone,
+    timestamp: new Date().toISOString()
+  };
+
+  // Send to Wix CRM via Cloudflare Worker
+  fetch("https://hitmantech-proxy.jmarino.workers.dev/lead", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(window.leadData)
+  }).then(function(r) {
+    return r.json();
+  }).then(function(data) {
+    console.log("Lead saved to Wix CRM:", data);
+  }).catch(function(e) {
+    console.log("Lead save error:", e.message);
+  });
+
+  // Show audit tool regardless of CRM result
+  document.getElementById("lead-gate").style.display = "none";
+  document.getElementById("audit-tool").style.display = "block";
+  setStatus("Welcome " + name + "! Enter your website URL below to run your free LLM Readiness Audit.", "");
+}
 
   // Show the audit tool and hide the gate
   document.getElementById("lead-gate").style.display = "none";
