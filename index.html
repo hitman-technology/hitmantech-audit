@@ -205,13 +205,13 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
   <div><div class="bname">Hitman Technologies</div><div class="bsub">LLM and Agent Readiness Auditor</div></div>
 </div>
 <div class="hero">
-  <div class="hero-badge">The Agent Economy is here</div>
+  <div class="hero-badge">The Agent Economy Is Here</div>
   <h1>AI Agents Are <em>Judging Your Website</em> Right Now.</h1>
   <p class="hero-sub">Drop your URL. Get the real talk. Find out what Claude, ChatGPT, Grok, Gemini and Perplexity really think about your website right now  -  and whether AI agents can find, read, and buy from you. Cloudflare CEO Matthew Prince warned that bot traffic will exceed human traffic by 2027. If your site is not LLM-ready, it is invisible.</p>
   <div class="hero-stats">
-    <div class="hstat"><div class="hstat-val">50%+</div><div class="hstat-lbl">of internet traffic is already AI agents</div><div class="hstat-src">Source: Cloudflare, 2026</div></div>
-    <div class="hstat"><div class="hstat-val">60-70%</div><div class="hstat-lbl">projected bot traffic share by 2027</div><div class="hstat-src">Source: IBM Agent Economy, 2026</div></div>
-    <div class="hstat"><div class="hstat-val">2027</div><div class="hstat-lbl">when bots will outnumber human users</div><div class="hstat-src">Source: Cloudflare CEO, TechCrunch</div></div>
+    <div class="hstat"><div class="hstat-val">50%+</div><div class="hstat-lbl">Of internet traffic is already AI agents</div><div class="hstat-src">Source: Cloudflare, 2026</div></div>
+    <div class="hstat"><div class="hstat-val">60-70%</div><div class="hstat-lbl">Projected bot traffic share by 2027</div><div class="hstat-src">Source: IBM Agent Economy, 2026</div></div>
+    <div class="hstat"><div class="hstat-val">2027</div><div class="hstat-lbl">When bots will outnumber human users</div><div class="hstat-src">Source: Cloudflare CEO, TechCrunch</div></div>
   </div>
 </div>
 <div class="trust-bar">
@@ -973,14 +973,14 @@ async function runAudit() {
   }, 3000);
   window._stepInterval = stepInterval;
   try {
-    var resp = await fetch("https://hitmantech-proxy.jmarino.workers.dev", {
+    var resp = await fetch("https://hitmantech-proxy.jmarino.workers.dev/audit", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
+        url: raw,
         model: "claude-sonnet-4-5",
         max_tokens: 4000,
-        system: SYS,
-        messages: [{role: "user", content: "Audit this URL for LLM and agent readiness: " + raw + "\n\nCRITICAL INSTRUCTIONS - you MUST do all of these:\n1. Fetch the homepage: " + raw + "\n2. Fetch robots.txt DIRECTLY at this exact URL: " + raw.replace(/\/$/, '') + "/robots.txt - read its actual content\n3. Fetch llms.txt DIRECTLY at this exact URL: " + raw.replace(/\/$/, '') + "/llms.txt - read its actual content\n4. Fetch sitemap DIRECTLY at: " + raw.replace(/\/$/, '') + "/sitemap.xml\n5. Do NOT assume any file is missing until you have actually tried to fetch it\n6. If a file returns content when fetched directly, mark it as PRESENT even if search engines have not indexed it yet\n7. Timestamp: " + new Date().toISOString()}]
+        system: SYS
       })
     });
     var data = await resp.json();
