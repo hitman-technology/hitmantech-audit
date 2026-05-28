@@ -205,7 +205,7 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
   <div><div class="bname">Hitman Technologies</div><div class="bsub">LLM and Agent Readiness Auditor</div></div>
 </div>
 <div class="hero">
-  <div class="hero-badge">The Agent Economy is Here</div>
+  <div class="hero-badge">The Agent Economy is here</div>
   <h1>AI Agents Are <em>Judging Your Website</em> Right Now.</h1>
   <p class="hero-sub">Drop your URL. Get the real talk. Find out what Claude, ChatGPT, Grok, Gemini and Perplexity really think about your website right now  -  and whether AI agents can find, read, and buy from you. Cloudflare CEO Matthew Prince warned that bot traffic will exceed human traffic by 2027. If your site is not LLM-ready, it is invisible.</p>
   <div class="hero-stats">
@@ -235,7 +235,7 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
   <div class="trust-divider"></div>
   <div class="trust-item">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#15A4A2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-    Trusted by Hitman Technologies Clients
+    Trusted by Hitman Technologies clients
   </div>
   <div class="trust-divider"></div>
   <div class="trust-stat">
@@ -632,7 +632,7 @@ function dlPDF() {
   doc.text("Websites with low LLM readiness become invisible to Claude, ChatGPT, and Gemini",L+14,201);
   sf(T);doc.roundedRect(L+8,218,CW-8,26,3,3,"F");
   st(WHT);doc.setFont("helvetica","bold");doc.setFontSize(11);
-  doc.text("Book a free LLM Readiness consultation",W/2,229,{align:"center"});
+  doc.text("Book a FREE LLM Readiness Consultation",W/2,229,{align:"center"});
   doc.setFont("helvetica","normal");doc.setFontSize(9);
   doc.text("hitmantech.com - info@hitmantech.com",W/2,237,{align:"center"});
   st([61,85,80]);doc.setFont("helvetica","normal");doc.setFontSize(7);
@@ -863,7 +863,7 @@ function dlPDF() {
   nd(14);
   sf(TL); doc.roundedRect(L, y, CW, 12, 2, 2, "F");
   st(DKTEAL); doc.setFont("helvetica","bold"); doc.setFontSize(9);
-  doc.text("Ready To Get Started? Contact Hitman Technologies Today.", W/2, y + 8, {align:"center"});
+  doc.text("Ready to get started? Contact Hitman Technologies today.", W/2, y + 8, {align:"center"});
   y += 18;
 
     ph("Next Steps with Hitman Technologies");
@@ -893,7 +893,7 @@ function dlPDF() {
   doc.save("hitmantech-llm-readiness-"+slug+"-"+new Date().toISOString().slice(0,10)+".pdf");
 }
 
-var SYS = "You are an LLM and agent readiness expert for Hitman Technologies (hitmantech.com). Cloudflare CEO Matthew Prince stated in 2026 that bot traffic will exceed human traffic by 2027. IBM projects AI agents will generate 60-70% of all internet traffic by 2027. Websites that are not LLM-friendly become ghosts invisible to the systems making recommendations and purchases on behalf of users. Audit the given URL and return ONLY valid compact JSON with no markdown and no backticks. The JSON structure is: url string, overall_score integer 0-100, checks_passed integer, checks_total 30, critical_issues integer, pages_crawled integer, strengths array of objects with title and desc, weaknesses array of objects with title and desc, llm_readiness object with claude chatgpt gemini perplexity each having score integer can_find boolean can_read boolean can_price boolean can_act boolean, categories array, recommendations array, suggested_tier string. Categories must use EXACTLY these 6 ids and max scores: discoverability 20, interpretability 20, structured_data 20, navigation 20, commerce 15, api 5. Category names: LLM Discoverability, Content Interpretability, Structured Data, Agentic Navigation, Commerce Readiness, API Integration. Each category has 5 checks with name status description agent_impact and impact. Status values are pass warn fail or info. IMPORTANT: For the llms.txt check in LLM Discoverability, note in the description that Google Search does not use llms.txt but Claude, ChatGPT, Perplexity and autonomous agents do reference it - so it matters for the broader agentic web even if not for Google rankings. Provide exactly 5 strengths and 5 weaknesses. Provide exactly 7 recommendations each with title description agent_benefit and impact. Keep all text fields under 130 characters. suggested_tier is starter if score 70 or above (Grade A or B - recommend Quick Wins Tier 1), pro if score 35 to 69 (Grade C or D - recommend Full Implementation Tier 2), agency if score below 35 (Grade F - recommend Ongoing Retainer Tier 3).";
+var SYS = "IMPORTANT: You must fetch the live current version of every URL you audit. Do not rely on cached or previously known information about any website. Always treat each audit as if you have never seen the site before and fetch fresh content in real time. You are an LLM and agent readiness expert for Hitman Technologies (hitmantech.com). Cloudflare CEO Matthew Prince stated in 2026 that bot traffic will exceed human traffic by 2027. IBM projects AI agents will generate 60-70% of all internet traffic by 2027. Websites that are not LLM-friendly become ghosts invisible to the systems making recommendations and purchases on behalf of users. Audit the given URL and return ONLY valid compact JSON with no markdown and no backticks. The JSON structure is: url string, overall_score integer 0-100, checks_passed integer, checks_total 30, critical_issues integer, pages_crawled integer, strengths array of objects with title and desc, weaknesses array of objects with title and desc, llm_readiness object with claude chatgpt gemini perplexity each having score integer can_find boolean can_read boolean can_price boolean can_act boolean, categories array, recommendations array, suggested_tier string. Categories must use EXACTLY these 6 ids and max scores: discoverability 20, interpretability 20, structured_data 20, navigation 20, commerce 15, api 5. Category names: LLM Discoverability, Content Interpretability, Structured Data, Agentic Navigation, Commerce Readiness, API Integration. Each category has 5 checks with name status description agent_impact and impact. Status values are pass warn fail or info. IMPORTANT: For the llms.txt check in LLM Discoverability, you MUST attempt to directly fetch the URL: [domain]/llms.txt by constructing the path from the audited URL. For example if auditing https://hitmantech.com then fetch https://hitmantech.com/llms.txt directly. If that file exists and returns content, mark the check as pass. Do not rely on search index results for this check - fetch the file path directly. Note in the description that Google Search does not use llms.txt but Claude, ChatGPT, Perplexity and autonomous agents do reference it. Provide exactly 5 strengths and 5 weaknesses. Provide exactly 7 recommendations each with title description agent_benefit and impact. Keep all text fields under 130 characters. suggested_tier is starter if score 70 or above (Grade A or B - recommend Quick Wins Tier 1), pro if score 35 to 69 (Grade C or D - recommend Full Implementation Tier 2), agency if score below 35 (Grade F - recommend Ongoing Retainer Tier 3).";
 
 function submitLeadGate() {
   var name = document.getElementById("lg-name").value.trim();
@@ -977,10 +977,10 @@ async function runAudit() {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
-        model: "claude-haiku-4-5",
+        model: "claude-sonnet-4-5",
         max_tokens: 4000,
         system: SYS,
-        messages: [{role: "user", content: "Audit this URL for LLM and agent readiness: " + raw}]
+        messages: [{role: "user", content: "Audit this URL for LLM and agent readiness: " + raw + "\n\nCRITICAL INSTRUCTIONS - you MUST do all of these:\n1. Fetch the homepage: " + raw + "\n2. Fetch robots.txt DIRECTLY at this exact URL: " + raw.replace(/\/$/, '') + "/robots.txt - read its actual content\n3. Fetch llms.txt DIRECTLY at this exact URL: " + raw.replace(/\/$/, '') + "/llms.txt - read its actual content\n4. Fetch sitemap DIRECTLY at: " + raw.replace(/\/$/, '') + "/sitemap.xml\n5. Do NOT assume any file is missing until you have actually tried to fetch it\n6. If a file returns content when fetched directly, mark it as PRESENT even if search engines have not indexed it yet\n7. Timestamp: " + new Date().toISOString()}]
       })
     });
     var data = await resp.json();
