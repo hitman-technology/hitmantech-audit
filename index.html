@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +10,7 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
 .brand{display:flex;align-items:center;gap:12px;padding:16px 20px;background:#080e0d;border-radius:10px 10px 0 0}
 .blobs{display:flex;flex-direction:column;gap:3px}
 .blob{width:22px;height:6px;background:#15A4A2;border-radius:5px}
+
 .bname{font-size:15px;font-weight:700;color:#fff;line-height:1.1}
 .bsub{font-size:9px;color:#15A4A2;letter-spacing:.1em;text-transform:uppercase}
 .hero{background:#0a1a18;padding:28px 20px 24px}
@@ -183,6 +183,33 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
 @keyframes scanBeam{to{transform:rotate(360deg)}}
 @media(max-width:600px){.sw-grid,.llm-grid,.tier-grid,.hero-stats,.lead-row{grid-template-columns:1fr}.url-row{flex-direction:column}}
 
+/* -- COMPARISON CHART -- */
+.compare{background:#fff;border:1px solid #d4e2df;border-radius:12px;padding:22px;margin-bottom:16px;overflow:hidden}
+.compare-title{font-size:14px;font-weight:800;color:#080e0d;margin-bottom:4px}
+.compare-sub{font-size:12px;color:#5a706c;margin-bottom:20px;line-height:1.6}
+.compare-table{width:100%;border-collapse:collapse}
+.compare-table th{padding:10px 14px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;text-align:center;border-bottom:2px solid #d4e2df}
+.compare-table th:first-child{text-align:left;color:#5a706c}
+.col-onetime{color:#3480cc;background:#f0f5ff;border-radius:8px 8px 0 0}
+.col-retainer{color:#15A4A2;background:#e0f5f4;border-radius:8px 8px 0 0}
+.compare-table td{padding:11px 14px;font-size:12px;border-bottom:1px solid #f2f6f5;vertical-align:middle}
+.compare-table td:first-child{font-weight:600;color:#080e0d;font-size:12px}
+.compare-table td:not(:first-child){text-align:center}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table tr:nth-child(even) td{background:#fafbfb}
+.compare-table tr:nth-child(even) td:first-child{background:#fafbfb}
+.c-yes{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#e0f5f4;color:#15A4A2;font-size:14px;font-weight:800}
+.c-no{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#feebeb;color:#e03b3a;font-size:14px;font-weight:700}
+.c-maybe{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#fef3e0;color:#c07000;font-size:12px;font-weight:800}
+.c-price-tag{display:inline-block;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700}
+.c-onetime-tag{background:#e8f0ff;color:#3480cc}
+.c-retainer-tag{background:#e0f5f4;color:#085041}
+.compare-highlight{background:linear-gradient(135deg,#080e0d,#1c2b29);border-radius:10px;padding:16px 20px;margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.compare-highlight-text{font-size:13px;color:#fff;font-weight:600;line-height:1.6}
+.compare-highlight-text span{color:#15A4A2}
+.compare-cta{background:#15A4A2;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;text-decoration:none;display:inline-block}
+.compare-cta:hover{background:#0c7a78}
+
 /* -- TRUST BAR -- */
 .trust-bar{background:#080e0d;border-top:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:20px}
 .trust-item{display:flex;align-items:center;gap:8px;color:#8fa8a4;font-size:12px;white-space:nowrap}
@@ -201,17 +228,17 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
 <body>
 <div class="wrap">
 <div class="brand">
-  <div class="blobs"><div class="blob"></div><div class="blob"></div><div class="blob"></div></div>
-  <div><div class="bname">Hitman Technologies</div><div class="bsub">LLM and Agent Readiness Auditor</div></div>
+  
+  <div><div class="bname">Hitman Technologies</div><div class="bsub">Your LLM Scorecard</div></div>
 </div>
 <div class="hero">
-  <div class="hero-badge">The Agent Economy Is Here</div>
-  <h1>AI Agents Are <em>Judging Your Website</em> Right Now.</h1>
+  <div class="hero-badge">The Agent Economy is here</div>
+  <h1>What Do Claude, ChatGPT, Grok and Gemini <em>Really Think</em> of Your Site?</h1>
   <p class="hero-sub">Drop your URL. Get the real talk. Find out what Claude, ChatGPT, Grok, Gemini and Perplexity really think about your website right now  -  and whether AI agents can find, read, and buy from you. Cloudflare CEO Matthew Prince warned that bot traffic will exceed human traffic by 2027. If your site is not LLM-ready, it is invisible.</p>
   <div class="hero-stats">
-    <div class="hstat"><div class="hstat-val">50%+</div><div class="hstat-lbl">Of internet traffic is already AI agents</div><div class="hstat-src">Source: Cloudflare, 2026</div></div>
-    <div class="hstat"><div class="hstat-val">60-70%</div><div class="hstat-lbl">Projected bot traffic share by 2027</div><div class="hstat-src">Source: IBM Agent Economy, 2026</div></div>
-    <div class="hstat"><div class="hstat-val">2027</div><div class="hstat-lbl">When bots will outnumber human users</div><div class="hstat-src">Source: Cloudflare CEO, TechCrunch</div></div>
+    <div class="hstat"><div class="hstat-val">50%+</div><div class="hstat-lbl">of internet traffic is already AI agents</div><div class="hstat-src">Source: Cloudflare, 2026</div></div>
+    <div class="hstat"><div class="hstat-val">60-70%</div><div class="hstat-lbl">projected bot traffic share by 2027</div><div class="hstat-src">Source: IBM Agent Economy, 2026</div></div>
+    <div class="hstat"><div class="hstat-val">2027</div><div class="hstat-lbl">when bots will outnumber human users</div><div class="hstat-src">Source: Cloudflare CEO, TechCrunch</div></div>
   </div>
 </div>
 <div class="trust-bar">
@@ -466,7 +493,7 @@ function showResults(d) {
       p: "$1,500",
       pnote: "one-time",
       features: ["llms.txt creation and deployment","robots.txt AI crawler permissions","Meta titles and descriptions optimised","Basic Organization schema added","Sitemap verification and submission","30-day re-audit included"],
-      bestfor: "Best for: Grade A or B",
+      bestfor: "Best for: Grade B or C",
       bestdesc: "Mostly visible but needs targeted fixes to close the gap. Delivery: 5 business days. Up to 10 pages.",
       enterprise: ""
     },
@@ -476,18 +503,18 @@ function showResults(d) {
       p: "$3,500",
       pnote: "one-time",
       features: ["Everything in Tier 1","Full Schema.org structured data","Content rewrite for LLM interpretability","Agentic navigation and form fixes","Commerce readiness optimisation","60-day re-audit with comparison report"],
-      bestfor: "Best for: Grade C or D",
+      bestfor: "Best for: Grade D or F",
       bestdesc: "Effectively invisible to AI agents and needs a complete transformation. Delivery: 7-10 business days. Up to 25 pages.",
       enterprise: "Sites over 25 pages or enterprise clients require custom pricing. Contact us for a scoped proposal."
     },
     {
       id: "Agency",
-      n: "Tier 3 - Ongoing Retainer",
-      p: "$499",
+      n: "Tier 3 - Stay Ahead Retainer",
+      p: "$799",
       pnote: "per month",
-      features: ["Monthly LLM readiness re-audit","Schema and content updates as protocols change","Competitor benchmarking","Priority support","Available standalone or as add-on to Tier 1 or 2"],
-      bestfor: "Best for: Grade C or D",
-      bestdesc: "AI crawler standards evolve monthly. Stay ahead of competitors with continuous monitoring and maintenance.",
+      features: ["Monthly LLM readiness re-audit","Schema and content updates as protocols change","Competitor benchmarking","Priority support","Annual commitment. Includes monthly re-audit, schema updates, competitor benchmarking and priority support"],
+      bestfor: "Best for: Grade A or B",
+      bestdesc: "AI crawler standards change every month. What scores an A today may drop in 90 days. Stay ahead automatically. 12-month commitment.",
       enterprise: ""
     }
   ];
@@ -517,6 +544,42 @@ function showResults(d) {
     html += "</div>";
   }
   html += "</div></div>";
+
+  html += "<div class='compare'>";
+  html += "<div class='compare-title'>Which plan is right for you?</div>";
+  html += "<p class='compare-sub'>If your website changes 4 or more times a year, the Stay Ahead Retainer pays for itself. And even without touching your site, AI crawler rules evolve monthly - which can drop your score without warning.</p>";
+  html += "<table class='compare-table'>";
+  html += "<thead><tr>";
+  html += "<th style='text-align:left;color:#5a706c'>Your situation</th>";
+  html += "<th class='col-onetime'>Quick Wins<br/><span style='font-size:11px;font-weight:600'>$1,500 one-time</span></th>";
+  html += "<th class='col-retainer'>Stay Ahead<br/><span style='font-size:11px;font-weight:600'>$799/mo</span></th>";
+  html += "</tr></thead><tbody>";
+
+  var compareRows = [
+    ["Update website 1-2x per year", "yes", "avail"],
+    ["Update website 3x per year", "maybe", "yes"],
+    ["Update website 4+ times per year", "no", "yes"],
+    ["AI crawler rules change (GPTBot, ClaudeBot)", "no", "yes"],
+    ["New LLMs emerge and need optimising", "no", "yes"],
+    ["Score drops without you changing anything", "no", "yes"],
+    ["Competitor LLM monitoring", "no", "yes"],
+    ["Monthly score tracking and reporting", "no", "yes"],
+    ["Automatic updates as protocols evolve", "no", "yes"]
+  ];
+
+  for (var cri = 0; cri < compareRows.length; cri++) {
+    var cr = compareRows[cri];
+    var c1 = cr[1] === "yes" ? "<div class='c-yes'>&#10003;</div>" : cr[1] === "maybe" ? "<div class='c-maybe'>~</div>" : "<div class='c-no'>&#10007;</div>";
+    var c2 = cr[2] === "yes" ? "<div class='c-yes'>&#10003;</div>" : cr[2] === "maybe" ? "<div class='c-maybe'>~</div>" : "<div class='c-no'>&#10007;</div>";
+    html += "<tr><td>" + cr[0] + "</td><td>" + c1 + "</td><td>" + c2 + "</td></tr>";
+  }
+
+  html += "</tbody></table>";
+  html += "<div class='compare-highlight'>";
+  html += "<div class='compare-highlight-text'>Websites that update 4+ times a year spend <span>$6,000+</span> on one-time fixes.<br/>The Stay Ahead Retainer covers unlimited updates for <span>$9,588/year</span> - and keeps your score from dropping between updates.</div>";
+  html += "<a href='https://calendly.com/jmarino-hitmantech/new-meeting' target='_blank' class='compare-cta'>Book a Free Consultation</a>";
+  html += "</div>";
+  html += "</div>";
 
   html += "<div class='actions'>";
   html += "<button class='btn-primary' onclick='dlPDF()'>Download PDF Report</button>";
@@ -632,7 +695,7 @@ function dlPDF() {
   doc.text("Websites with low LLM readiness become invisible to Claude, ChatGPT, and Gemini",L+14,201);
   sf(T);doc.roundedRect(L+8,218,CW-8,26,3,3,"F");
   st(WHT);doc.setFont("helvetica","bold");doc.setFontSize(11);
-  doc.text("Book a FREE LLM Readiness Consultation",W/2,229,{align:"center"});
+  doc.text("Book a Free Consultation with Hitman Technologies",W/2,229,{align:"center"});
   doc.setFont("helvetica","normal");doc.setFontSize(9);
   doc.text("hitmantech.com - info@hitmantech.com",W/2,237,{align:"center"});
   st([61,85,80]);doc.setFont("helvetica","normal");doc.setFontSize(7);
@@ -776,7 +839,7 @@ function dlPDF() {
   // PDF PAGE: IMPLEMENTATION PACKAGES
   ph("Suggested Implementation Package");
   nd(12);
-  var introText = "Your grade determines the right starting point. Each tier is scoped by page count. Enterprise and large sites receive custom pricing.";
+  var introText = "Your grade determines the right starting point. One-time fixes or stay ahead with a monthly retainer. Enterprise and large sites receive custom pricing.";
   var introLines = doc.splitTextToSize(introText, CW);
   doc.setFont("helvetica","normal"); doc.setFontSize(9); st(MID);
   for (var pil2 = 0; pil2 < introLines.length; pil2++) { doc.text(introLines[pil2], L, y); y += 5; }
@@ -845,8 +908,8 @@ function dlPDF() {
     st(WHT); doc.setFont("helvetica","bold"); doc.setFontSize(6.5);
     doc.text("RECOMMENDED FOR YOU", L + CW/2, y - 0.8, {align:"center"});
   }
-  st(MID); doc.setFont("helvetica","bold"); doc.setFontSize(7); doc.text("TIER 3 - ONGOING RETAINER", L + 6, y + 8);
-  st([130,80,200]); doc.setFont("helvetica","bold"); doc.setFontSize(18); doc.text("$499/mo", L + 6, y + 20);
+  st(MID); doc.setFont("helvetica","bold"); doc.setFontSize(7); doc.text("TIER 3 - STAY AHEAD RETAINER", L + 6, y + 8);
+  st([130,80,200]); doc.setFont("helvetica","bold"); doc.setFontSize(18); doc.text("$799/mo", L + 6, y + 20);
   st(MID); doc.setFont("helvetica","normal"); doc.setFontSize(7); doc.text("per month", L + 6, y + 25);
   sd(BDR); doc.setLineWidth(0.2); doc.line(L + 4, y + 29, L + CW/2 - 4, y + 29);
   var t3feats = ["Monthly LLM readiness re-audit", "Schema and content updates as protocols change", "Competitor benchmarking", "Priority support", "Available standalone or add-on to Tier 1 or 2"];
@@ -855,7 +918,7 @@ function dlPDF() {
   sd(BDR); doc.setLineWidth(0.2); doc.line(L + CW/2 + 4, y + 29, L + CW - 4, y + 29);
   st(INK); doc.setFont("helvetica","bold"); doc.setFontSize(8); doc.text("Best for: Grade A or B", L + CW/2 + 6, y + 36);
   st(MID); doc.setFont("helvetica","normal"); doc.setFontSize(7.5);
-  var bf3 = doc.splitTextToSize("AI crawler standards evolve monthly. Stay ahead of competitors with continuous monitoring and maintenance.", CW/2 - 12);
+  var bf3 = doc.splitTextToSize("AI crawler standards change every month. What scores an A today may drop in 90 days. Stay ahead automatically. 12-month commitment.", CW/2 - 12);
   for (var bf3i = 0; bf3i < Math.min(bf3.length, 3); bf3i++) { doc.text(bf3[bf3i], L + CW/2 + 6, y + 43 + bf3i * 4.5); }
   y += 74;
 
@@ -893,7 +956,7 @@ function dlPDF() {
   doc.save("hitmantech-llm-readiness-"+slug+"-"+new Date().toISOString().slice(0,10)+".pdf");
 }
 
-var SYS = "IMPORTANT: You must fetch the live current version of every URL you audit. Do not rely on cached or previously known information about any website. Always treat each audit as if you have never seen the site before and fetch fresh content in real time. You are an LLM and agent readiness expert for Hitman Technologies (hitmantech.com). Cloudflare CEO Matthew Prince stated in 2026 that bot traffic will exceed human traffic by 2027. IBM projects AI agents will generate 60-70% of all internet traffic by 2027. Websites that are not LLM-friendly become ghosts invisible to the systems making recommendations and purchases on behalf of users. Audit the given URL and return ONLY valid compact JSON with no markdown and no backticks. The JSON structure is: url string, overall_score integer 0-100, checks_passed integer, checks_total 30, critical_issues integer, pages_crawled integer, strengths array of objects with title and desc, weaknesses array of objects with title and desc, llm_readiness object with claude chatgpt gemini perplexity each having score integer can_find boolean can_read boolean can_price boolean can_act boolean, categories array, recommendations array, suggested_tier string. Categories must use EXACTLY these 6 ids and max scores: discoverability 20, interpretability 20, structured_data 20, navigation 20, commerce 15, api 5. Category names: LLM Discoverability, Content Interpretability, Structured Data, Agentic Navigation, Commerce Readiness, API Integration. Each category has 5 checks with name status description agent_impact and impact. Status values are pass warn fail or info. IMPORTANT: For the llms.txt check in LLM Discoverability, you MUST attempt to directly fetch the URL: [domain]/llms.txt by constructing the path from the audited URL. For example if auditing https://hitmantech.com then fetch https://hitmantech.com/llms.txt directly. If that file exists and returns content, mark the check as pass. Do not rely on search index results for this check - fetch the file path directly. Note in the description that Google Search does not use llms.txt but Claude, ChatGPT, Perplexity and autonomous agents do reference it. Provide exactly 5 strengths and 5 weaknesses. Provide exactly 7 recommendations each with title description agent_benefit and impact. Keep all text fields under 130 characters. suggested_tier is starter if score 70 or above (Grade A or B - recommend Quick Wins Tier 1), pro if score 35 to 69 (Grade C or D - recommend Full Implementation Tier 2), agency if score below 35 (Grade F - recommend Ongoing Retainer Tier 3).";
+var SYS = "IMPORTANT: You must fetch the live current version of every URL you audit. Do not rely on cached or previously known information about any website. Always treat each audit as if you have never seen the site before and fetch fresh content in real time. You are an LLM and agent readiness expert for Hitman Technologies (hitmantech.com). Cloudflare CEO Matthew Prince stated in 2026 that bot traffic will exceed human traffic by 2027. IBM projects AI agents will generate 60-70% of all internet traffic by 2027. Websites that are not LLM-friendly become ghosts invisible to the systems making recommendations and purchases on behalf of users. Audit the given URL and return ONLY valid compact JSON with no markdown and no backticks. The JSON structure is: url string, overall_score integer 0-100, checks_passed integer, checks_total 30, critical_issues integer, pages_crawled integer, strengths array of objects with title and desc, weaknesses array of objects with title and desc, llm_readiness object with claude chatgpt gemini perplexity each having score integer can_find boolean can_read boolean can_price boolean can_act boolean, categories array, recommendations array, suggested_tier string. Categories must use EXACTLY these 6 ids and max scores: discoverability 20, interpretability 20, structured_data 20, navigation 20, commerce 15, api 5. Category names: LLM Discoverability, Content Interpretability, Structured Data, Agentic Navigation, Commerce Readiness, API Integration. Each category has 5 checks with name status description agent_impact and impact. Status values are pass warn fail or info. IMPORTANT: For the llms.txt check in LLM Discoverability, you MUST attempt to directly fetch the URL: [domain]/llms.txt by constructing the path from the audited URL. For example if auditing https://hitmantech.com then fetch https://hitmantech.com/llms.txt directly. If that file exists and returns content, mark the check as pass. Do not rely on search index results for this check - fetch the file path directly. Note in the description that Google Search does not use llms.txt but Claude, ChatGPT, Perplexity and autonomous agents do reference it. Provide exactly 5 strengths and 5 weaknesses. Provide exactly 7 recommendations each with title description agent_benefit and impact. Keep all text fields under 130 characters. suggested_tier is starter if score 70 or above (Grade A or B - recommend Quick Wins Tier 1 at $1500 one-time), pro if score 35 to 69 (Grade C or D - recommend Full Implementation Tier 2 at $3500 one-time), agency if score below 35 (Grade F - recommend Stay Ahead Retainer Tier 3 at $799/month annual commitment).";
 
 function submitLeadGate() {
   var name = document.getElementById("lg-name").value.trim();
@@ -1012,9 +1075,9 @@ async function runAudit() {
     <span style="color:#2a3a36">|</span>
     <a href="mailto:info@hitmantech.com" style="color:#5a706c;font-size:12px;text-decoration:none">info@hitmantech.com</a>
     <span style="color:#2a3a36">|</span>
-    <a href="https://www.hitmantech.com" target="_blank" style="color:#5a706c;font-size:12px;text-decoration:none">Book a consultation</a>
+    <a href="https://calendly.com/jmarino-hitmantech/new-meeting" target="_blank" style="color:#5a706c;font-size:12px;text-decoration:none">Book a Free Consultation</a>
   </div>
-  <p style="font-size:11px;color:#3d5550">&#169; 2026 Hitman Technologies &#183; LLM and Agent Readiness Auditor &#183; All rights reserved.</p>
+  <p style="font-size:11px;color:#3d5550">&#169; 2026 Hitman Technologies &#183; Your LLM Scorecard &#183; All rights reserved.</p>
 </div>
 </body>
 </html>
