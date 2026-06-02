@@ -226,6 +226,24 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
 </style>
 </head>
 <body>
+<script>
+// Auto-resize iframe height to match content
+function notifyParentHeight() {
+  var height = document.body.scrollHeight;
+  window.parent.postMessage({type: "ht-resize", height: height}, "*");
+}
+// Notify on load
+window.addEventListener("load", function() {
+  notifyParentHeight();
+  // Also watch for content changes (results loading etc)
+  var observer = new MutationObserver(function() {
+    notifyParentHeight();
+  });
+  observer.observe(document.body, {childList: true, subtree: true});
+});
+// Notify on window resize
+window.addEventListener("resize", notifyParentHeight);
+</script>
 <div class="wrap">
 <div class="brand">
   
@@ -298,7 +316,7 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
           <input type="tel" id="lg-phone" placeholder="+1 555 222 1212" autocomplete="tel"/>
         </div>
       </div>
-      <button class="lead-submit-btn" onclick="submitLeadGate()">Show Me My Free Score</button>
+      <button class="lead-submit-btn" onclick="submitLeadGate()">Get My Free Score - Step 1 of 2</button>
       <div class="lead-privacy">Free. No credit card. Real AI insights in under 60 seconds.</div>
     </div>
   </div>
@@ -308,7 +326,7 @@ body{font-family:sans-serif;background:#f2f6f5;color:#080e0d;font-size:14px;padd
 <div class="url-section">
   <div class="url-row">
     <input type="url" id="url-in" placeholder="https://yourwebsite.com" autocomplete="off"/>
-    <button id="run-btn" onclick="runAudit()">Drop It &#128293;</button>
+    <button id="run-btn" onclick="runAudit()">Show Me My Free Score</button>
   </div>
   <div class="status"><div class="dot" id="dot"></div><span id="status-txt">Enter your URL to find out if Claude, ChatGPT and Gemini can find and recommend your business.</span></div>
 </div>
@@ -503,7 +521,7 @@ function showResults(d) {
       p: "$3,500",
       pnote: "one-time",
       features: ["Everything in Tier 1","Full Schema.org structured data","Content rewrite for LLM interpretability","Agentic navigation and form fixes","Commerce readiness optimisation","60-day re-audit with comparison report"],
-      bestfor: "Best for: Grade C or D",
+      bestfor: "Best for: Grade C, D or F",
       bestdesc: "Effectively invisible to AI agents and needs a complete transformation. Delivery: 7-10 business days. Up to 25 pages.",
       enterprise: "Sites over 25 pages or enterprise clients require custom pricing. Contact us for a scoped proposal."
     },
@@ -847,7 +865,7 @@ function dlPDF() {
 
   // Tier 1
   nd(72);
-  var isRec1 = d.suggested_tier === "Starter";
+  var isRec1 = d.suggested_tier === "starter";
   sf(isRec1 ? TL : LG); doc.roundedRect(L, y, CW, 68, 2, 2, "F");
   if (isRec1) { sd(T); doc.setLineWidth(1.2); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
   else { sd(BDR); doc.setLineWidth(0.3); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
@@ -872,7 +890,7 @@ function dlPDF() {
 
   // Tier 2
   nd(72);
-  var isRec2 = d.suggested_tier === "Pro";
+  var isRec2 = d.suggested_tier === "pro";
   sf(isRec2 ? [230,245,255] : LG); doc.roundedRect(L, y, CW, 68, 2, 2, "F");
   if (isRec2) { sd(BLU); doc.setLineWidth(1.2); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
   else { sd(BDR); doc.setLineWidth(0.3); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
@@ -899,7 +917,7 @@ function dlPDF() {
 
   // Tier 3
   nd(72);
-  var isRec3 = d.suggested_tier === "Agency";
+  var isRec3 = d.suggested_tier === "agency";
   sf(isRec3 ? [245,238,255] : LG); doc.roundedRect(L, y, CW, 68, 2, 2, "F");
   if (isRec3) { sd([130,80,200]); doc.setLineWidth(1.2); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
   else { sd(BDR); doc.setLineWidth(0.3); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
