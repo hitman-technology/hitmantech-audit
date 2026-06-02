@@ -511,7 +511,7 @@ function showResults(d) {
       p: "$1,500",
       pnote: "one-time",
       features: ["llms.txt creation and deployment","robots.txt AI crawler permissions","Meta titles and descriptions optimised","Basic Organization schema added","Sitemap verification and submission","30-day re-audit included"],
-      bestfor: "Best for: Grade A or B",
+      bestfor: "Best for: Grade B or C",
       bestdesc: "Mostly visible but needs targeted fixes to close the gap. Delivery: 5 business days. Up to 10 pages.",
       enterprise: ""
     },
@@ -521,7 +521,7 @@ function showResults(d) {
       p: "$3,500",
       pnote: "one-time",
       features: ["Everything in Tier 1","Full Schema.org structured data","Content rewrite for LLM interpretability","Agentic navigation and form fixes","Commerce readiness optimisation","60-day re-audit with comparison report"],
-      bestfor: "Best for: Grade C, D or F",
+      bestfor: "Best for: Grade D or F",
       bestdesc: "Effectively invisible to AI agents and needs a complete transformation. Delivery: 7-10 business days. Up to 25 pages.",
       enterprise: "Sites over 25 pages or enterprise clients require custom pricing. Contact us for a scoped proposal."
     },
@@ -531,7 +531,7 @@ function showResults(d) {
       p: "$799",
       pnote: "per month",
       features: ["Monthly LLM readiness re-audit","Schema and content updates as protocols change","Competitor benchmarking","Priority support","Annual commitment. Includes monthly re-audit, schema updates, competitor benchmarking and priority support"],
-      bestfor: "Best for: Grade C, D or F",
+      bestfor: "Best for: Grade B, C, D or F",
       bestdesc: "AI crawler standards change every month. What scores an A today may drop in 90 days. Stay ahead automatically. 12-month commitment.",
       enterprise: ""
     }
@@ -865,7 +865,7 @@ function dlPDF() {
 
   // Tier 1
   nd(72);
-  var isRec1 = d.suggested_tier === "starter";
+  var isRec1 = d.suggested_tier === "Starter";
   sf(isRec1 ? TL : LG); doc.roundedRect(L, y, CW, 68, 2, 2, "F");
   if (isRec1) { sd(T); doc.setLineWidth(1.2); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
   else { sd(BDR); doc.setLineWidth(0.3); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
@@ -890,7 +890,7 @@ function dlPDF() {
 
   // Tier 2
   nd(72);
-  var isRec2 = d.suggested_tier === "pro";
+  var isRec2 = d.suggested_tier === "Pro";
   sf(isRec2 ? [230,245,255] : LG); doc.roundedRect(L, y, CW, 68, 2, 2, "F");
   if (isRec2) { sd(BLU); doc.setLineWidth(1.2); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
   else { sd(BDR); doc.setLineWidth(0.3); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
@@ -917,7 +917,7 @@ function dlPDF() {
 
   // Tier 3
   nd(72);
-  var isRec3 = d.suggested_tier === "agency";
+  var isRec3 = d.suggested_tier === "Agency";
   sf(isRec3 ? [245,238,255] : LG); doc.roundedRect(L, y, CW, 68, 2, 2, "F");
   if (isRec3) { sd([130,80,200]); doc.setLineWidth(1.2); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
   else { sd(BDR); doc.setLineWidth(0.3); doc.roundedRect(L, y, CW, 68, 2, 2, "S"); }
@@ -1082,7 +1082,7 @@ async function runAudit() {
       body: JSON.stringify({
         url: raw,
         model: "claude-sonnet-4-5",
-        max_tokens: 4000,
+        max_tokens: 8000,
         system: SYS
       })
     });
