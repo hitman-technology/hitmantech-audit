@@ -1348,6 +1348,7 @@ async function dlPDF() {
   st(WHT);doc.setFont("helvetica","bold");doc.setFontSize(13);
   doc.text("Do not be a ghost in the forest.",L+CW/2,y+12,{align:"center"});
   if (logoB64) {
+    sf(WHT);doc.roundedRect(L+CW/2-46,y+21,92,32,2,2,"F");
     try { doc.addImage(logoB64,"PNG",L+CW/2-42,y+24,84,26); } catch(e) {}
   } else {
     doc.setFont("helvetica","bold");doc.setFontSize(12);st(WHT);
